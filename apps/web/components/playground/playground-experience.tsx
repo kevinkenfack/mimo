@@ -12,12 +12,14 @@ import {
   PLAYGROUND_BACKGROUNDS,
   PLAYGROUND_DEPTHS,
   PLAYGROUND_DETAIL_LEVELS,
+  PLAYGROUND_EXPORT_FORMATS,
   PLAYGROUND_EXPORT_SIZES,
   PLAYGROUND_MOODS,
   PLAYGROUND_SHAPES,
   type PlaygroundSettings,
 } from '@/lib/playground';
 import { PlaygroundControls } from './playground-controls';
+import { PlaygroundDownloads } from './playground-downloads';
 import { PlaygroundPreview } from './playground-preview';
 
 function pickRandom<Value>(values: readonly Value[]): Value {
@@ -43,6 +45,9 @@ export function PlaygroundExperience() {
         DEFAULT_PLAYGROUND_SETTINGS.animation
       ),
       exportSize: parseAsInteger.withDefault(DEFAULT_PLAYGROUND_SETTINGS.exportSize),
+      exportFormat: parseAsStringLiteral(PLAYGROUND_EXPORT_FORMATS).withDefault(
+        DEFAULT_PLAYGROUND_SETTINGS.exportFormat
+      ),
     },
     { history: 'replace', clearOnDefault: true }
   );
@@ -52,11 +57,15 @@ export function PlaygroundExperience() {
   const exportSize =
     PLAYGROUND_EXPORT_SIZES.find((size) => size === querySettings.exportSize) ??
     DEFAULT_PLAYGROUND_SETTINGS.exportSize;
+  const exportFormat =
+    PLAYGROUND_EXPORT_FORMATS.find((format) => format === querySettings.exportFormat) ??
+    DEFAULT_PLAYGROUND_SETTINGS.exportFormat;
   const settings: PlaygroundSettings = {
     ...querySettings,
     name: querySettings.name.slice(0, 64),
     gradient,
     exportSize,
+    exportFormat,
   };
 
   function updateSetting<Key extends keyof PlaygroundSettings>(key: Key, value: PlaygroundSettings[Key]) {
@@ -123,6 +132,10 @@ export function PlaygroundExperience() {
               onReset={reset}
             />
           </div>
+        </div>
+
+        <div className='mt-4 sm:mt-6'>
+          <PlaygroundDownloads settings={settings} onChange={updateSetting} />
         </div>
       </div>
     </main>

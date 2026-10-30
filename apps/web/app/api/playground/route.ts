@@ -1,4 +1,5 @@
 import { Resvg } from '@resvg/resvg-js';
+import { zipSync } from 'fflate';
 import type { NextRequest } from 'next/server';
 import { GRADIENTS } from '@/lib/constants';
 import { createAvatarSvg } from '@/lib/mimo-render';
@@ -11,11 +12,12 @@ import {
   PLAYGROUND_EXPORT_SIZES,
   PLAYGROUND_MOODS,
   PLAYGROUND_SHAPES,
+  type PlaygroundDownloadFormat,
 } from '@/lib/playground';
 
 export const runtime = 'nodejs';
 
-function filenameFor(name: string, format: 'png' | 'svg') {
+function filenameFor(name: string, format: PlaygroundDownloadFormat) {
   const safeName = name
     .normalize('NFKD')
     .replace(/[\u0300-\u036f]/g, '')
@@ -28,12 +30,13 @@ function filenameFor(name: string, format: 'png' | 'svg') {
 
 export function GET(request: NextRequest) {
   const params = request.nextUrl.searchParams;
-  const format = params.get('format');
+  const formatValue = params.get('format');
 
-  if (format !== 'png' && format !== 'svg') {
-    return new Response('Unsupported image format.', { status: 400 });
+  if (formatValue !== 'png' && formatValue !== 'svg' && formatValue !== 'zip') {
+    return new Response('Unsupported export format.', { status: 400 });
   }
 
+  const format = formatValue;
   const name =
     (params.get('name') ?? DEFAULT_PLAYGROUND_SETTINGS.name).trim().slice(0, 64) ||
     DEFAULT_PLAYGROUND_SETTINGS.name;
@@ -58,7 +61,6 @@ export function GET(request: NextRequest) {
   const requestedGradient = params.get('gradient')?.toLowerCase();
   const gradient =
     GRADIENTS.find((option) => option.name.toLowerCase() === requestedGradient) ?? GRADIENTS[0]!;
-  const filename = filenameFor(name, format);
   const svg = createAvatarSvg({
     name,
     size,
@@ -70,7 +72,7 @@ export function GET(request: NextRequest) {
     gradients: gradient.pair,
   });
   const headers = {
-    'Content-Disposition': `attachment; filename="${filename}"`,
+    'Content-Disposition': `attachment; filename="${filenameFor(name, format)}"`,
     'Cache-Control': 'private, no-store',
   };
 
@@ -84,6 +86,20 @@ export function GET(request: NextRequest) {
   }
 
   const png = new Resvg(svg, { fitTo: { mode: 'width', value: size } }).render().asPng();
+
+  if (format === 'zip') {
+    const archive = zipSync({
+      [filenameFor(name, 'png')]: png,
+      [filenameFor(name, 'svg')]: new TextEncoder().encode(svg),
+    });
+
+    return new Response(new Uint8Array(archive), {
+      headers: {
+        ...headers,
+        'Content-Type': 'application/zip',
+      },
+    });
+  }
 
   return new Response(new Uint8Array(png), {
     headers: {

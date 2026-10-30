@@ -43,10 +43,13 @@ export const PLAYGROUND_ANIMATIONS = [
   'entrance',
 ] as const satisfies readonly (FacesAnimation | 'none')[];
 export const PLAYGROUND_EXPORT_SIZES = [256, 512, 1024] as const;
+export const PLAYGROUND_EXPORT_FORMATS = ['png', 'svg'] as const;
 
 export type PlaygroundMood = (typeof PLAYGROUND_MOODS)[number];
 export type PlaygroundAnimation = (typeof PLAYGROUND_ANIMATIONS)[number];
 export type PlaygroundExportSize = (typeof PLAYGROUND_EXPORT_SIZES)[number];
+export type PlaygroundExportFormat = (typeof PLAYGROUND_EXPORT_FORMATS)[number];
+export type PlaygroundDownloadFormat = PlaygroundExportFormat | 'zip';
 
 export type PlaygroundSettings = {
   name: string;
@@ -58,6 +61,7 @@ export type PlaygroundSettings = {
   depth: FacesDepth;
   animation: PlaygroundAnimation;
   exportSize: PlaygroundExportSize;
+  exportFormat: PlaygroundExportFormat;
 };
 
 export const DEFAULT_PLAYGROUND_SETTINGS: PlaygroundSettings = {
@@ -69,8 +73,25 @@ export const DEFAULT_PLAYGROUND_SETTINGS: PlaygroundSettings = {
   detailLevel: 'full',
   depth: 'medium',
   animation: 'blink',
-  exportSize: 1024,
+  exportSize: 256,
+  exportFormat: 'png',
 };
+
+export function playgroundExportHref(settings: PlaygroundSettings, format: PlaygroundDownloadFormat) {
+  const params = new URLSearchParams({
+    format,
+    name: settings.name.trim() || 'Mimo',
+    shape: settings.shape,
+    background: settings.background,
+    gradient: settings.gradient.toLowerCase(),
+    mood: settings.mood,
+    detail: settings.detailLevel,
+    depth: settings.depth,
+    size: String(settings.exportSize),
+  });
+
+  return `/api/playground?${params.toString()}`;
+}
 
 export function isOneOf<T extends readonly string[]>(value: string | null, options: T): value is T[number] {
   return value !== null && (options as readonly string[]).includes(value);

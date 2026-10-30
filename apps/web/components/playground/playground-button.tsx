@@ -6,9 +6,9 @@ const BUTTON_BASE =
   'inline-flex min-h-10 items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 disabled:pointer-events-none disabled:opacity-50';
 
 const BUTTON_VARIANTS: Record<PlaygroundButtonVariant, string> = {
-  primary: 'bg-foreground text-background hover:opacity-85',
+  primary: 'bg-[#111111] text-white hover:bg-[#292929]',
   secondary: 'border border-border-strong bg-surface-raised text-heading hover:bg-surface',
-  ghost: 'text-foreground-secondary hover:bg-surface',
+  ghost: 'text-heading-secondary hover:bg-surface',
 };
 
 export function playgroundButtonClassName(variant: PlaygroundButtonVariant = 'secondary', className = '') {

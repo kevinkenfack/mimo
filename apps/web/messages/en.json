@@ -28,8 +28,7 @@
       "mood": "Expression",
       "detail": "Details",
       "depth": "Depth",
-      "animation": "Motion",
-      "exportSize": "Export size"
+      "animation": "Motion"
     },
     "options": {
       "shapes": {
@@ -78,9 +77,25 @@
       "description": "A new face, shaped by your choices.",
       "ariaLabel": "Mimo avatar for {name}",
       "settingsLabel": "Selected avatar settings",
-      "downloadPng": "Download PNG",
-      "downloadSvg": "Download SVG",
-      "exportNote": "Downloads are static images. Motion remains in the live preview."
+      "canvasLabel": "Avatar preview canvas",
+      "canvasTools": "Preview tools",
+      "copyPng": "Copy PNG",
+      "copying": "Preparing PNG…",
+      "copySuccess": "PNG copied to clipboard.",
+      "copyError": "Could not copy PNG. Check clipboard permissions.",
+      "zoomIn": "Zoom in",
+      "zoomOut": "Zoom out"
+    },
+    "export": {
+      "eyebrow": "Export",
+      "title": "Download your avatar",
+      "description": "Choose a scale and format for your file.",
+      "scale": "Scale",
+      "format": "Format",
+      "download": "Download {format}",
+      "downloadAll": "Download all (.ZIP)",
+      "downloadAllHint": "PNG + SVG in one ZIP archive.",
+      "note": "Exports are static; motion stays in the live preview."
     }
   },
   "languageToggle": {

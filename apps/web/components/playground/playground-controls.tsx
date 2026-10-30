@@ -8,7 +8,6 @@ import {
   PLAYGROUND_BACKGROUNDS,
   PLAYGROUND_DEPTHS,
   PLAYGROUND_DETAIL_LEVELS,
-  PLAYGROUND_EXPORT_SIZES,
   PLAYGROUND_MOODS,
   PLAYGROUND_SHAPES,
   type PlaygroundSettings,
@@ -45,7 +44,7 @@ function SelectField<Value extends string | number>({
           const option = options.find((item) => String(item.value) === event.currentTarget.value);
           if (option) onValueChange(option.value);
         }}
-        className='min-h-10 w-full rounded-lg border border-border-input bg-background px-3 py-2 text-sm text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50'
+        className='min-h-10 w-full rounded-lg border border-border-input bg-background px-2 py-2 text-xs text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 sm:px-3 sm:text-sm'
       >
         {options.map((option) => (
           <option key={String(option.value)} value={String(option.value)}>
@@ -97,11 +96,6 @@ export function PlaygroundControls({ settings, onChange, onRandomize, onReset }:
     value,
     label: options(`animations.${value}`),
   }));
-  const sizeOptions = PLAYGROUND_EXPORT_SIZES.map((value) => ({
-    value,
-    label: `${value} px`,
-  }));
-
   return (
     <section
       className='rounded-2xl border border-border bg-surface-raised p-3 sm:p-5'
@@ -122,8 +116,8 @@ export function PlaygroundControls({ settings, onChange, onRandomize, onReset }:
         </PlaygroundButton>
       </div>
 
-      <div className='mt-5 grid gap-x-4 gap-y-4 sm:grid-cols-2'>
-        <div className='grid gap-1.5 sm:col-span-2'>
+      <div className='mt-5 grid grid-cols-2 gap-x-3 gap-y-4 sm:gap-x-4'>
+        <div className='col-span-2 grid gap-1.5'>
           <label htmlFor='playground-name' className='text-sm font-medium text-heading-secondary'>
             {t('name')}
           </label>
@@ -143,10 +137,10 @@ export function PlaygroundControls({ settings, onChange, onRandomize, onReset }:
               onClick={onRandomize}
               title={t('randomize')}
               aria-label={t('randomize')}
-              className='shrink-0 px-3'
+              className='shrink-0 whitespace-nowrap px-2 text-xs sm:px-3 sm:text-sm'
             >
-              <IconShuffle className='size-4' aria-hidden='true' />
-              <span className='hidden sm:inline'>{t('randomize')}</span>
+              <IconShuffle className='size-4 shrink-0' aria-hidden='true' />
+              <span>{t('randomize')}</span>
             </PlaygroundButton>
           </div>
           <p id='playground-name-hint' className='text-xs leading-relaxed text-foreground-tertiary'>
@@ -196,20 +190,15 @@ export function PlaygroundControls({ settings, onChange, onRandomize, onReset }:
           options={depthOptions}
           onValueChange={(value) => onChange('depth', value)}
         />
-        <SelectField
-          id='playground-animation'
-          label={t('animation')}
-          value={settings.animation}
-          options={animationOptions}
-          onValueChange={(value) => onChange('animation', value)}
-        />
-        <SelectField
-          id='playground-export-size'
-          label={t('exportSize')}
-          value={settings.exportSize}
-          options={sizeOptions}
-          onValueChange={(value) => onChange('exportSize', value)}
-        />
+        <div className='col-span-2 sm:col-span-1'>
+          <SelectField
+            id='playground-animation'
+            label={t('animation')}
+            value={settings.animation}
+            options={animationOptions}
+            onValueChange={(value) => onChange('animation', value)}
+          />
+        </div>
       </div>
     </section>
   );

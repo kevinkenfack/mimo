@@ -28,8 +28,7 @@
       "mood": "Expression",
       "detail": "Niveau de détail",
       "depth": "Profondeur",
-      "animation": "Mouvement",
-      "exportSize": "Taille d’export"
+      "animation": "Mouvement"
     },
     "options": {
       "shapes": {
@@ -78,9 +77,25 @@
       "description": "Un nouveau visage, façonné par vos choix.",
       "ariaLabel": "Avatar Mimo pour {name}",
       "settingsLabel": "Réglages de l’avatar sélectionnés",
-      "downloadPng": "Télécharger en PNG",
-      "downloadSvg": "Télécharger en SVG",
-      "exportNote": "Les fichiers exportés sont statiques ; l’aperçu reste animé."
+      "canvasLabel": "Zone d’aperçu de l’avatar",
+      "canvasTools": "Outils de l’aperçu",
+      "copyPng": "Copier le PNG",
+      "copying": "Préparation du PNG…",
+      "copySuccess": "PNG copié dans le presse-papiers.",
+      "copyError": "Impossible de copier le PNG. Vérifiez les autorisations du presse-papiers.",
+      "zoomIn": "Agrandir l’aperçu",
+      "zoomOut": "Réduire l’aperçu"
+    },
+    "export": {
+      "eyebrow": "Export",
+      "title": "Télécharger votre avatar",
+      "description": "Choisissez l’échelle et le format du fichier.",
+      "scale": "Échelle",
+      "format": "Format",
+      "download": "Télécharger {format}",
+      "downloadAll": "Tout télécharger (.ZIP)",
+      "downloadAllHint": "PNG + SVG réunis dans une archive ZIP.",
+      "note": "Les exports sont statiques ; l’animation reste dans l’aperçu en direct."
     }
   },
   "languageToggle": {

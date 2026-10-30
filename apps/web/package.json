@@ -11,6 +11,7 @@
   "dependencies": {
     "@resvg/resvg-js": "^2.6.2",
     "@vercel/analytics": "^1.6.1",
+    "fflate": "^0.8.3",
     "mimo-id": "workspace:*",
     "next": "16.1.6",
     "next-intl": "^4.14.9",
