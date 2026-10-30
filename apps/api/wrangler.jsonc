@@ -1,0 +1,16 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "mimo-api",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-04-01",
+  "observability": {
+    "enabled": true
+  },
+  "account_id": "e8563b02f2bf2b6a136f2781445a486f",
+  "routes": [
+    {
+      "pattern": "api.mimo.sh",
+      "custom_domain": true
+    }
+  ]
+}
