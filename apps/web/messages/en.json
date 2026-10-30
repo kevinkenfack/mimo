@@ -1,0 +1,157 @@
+{
+  "metadata": {
+    "title": "Mimo — Animated avatar system for developers",
+    "description": "Generate unique, fully animated avatars from any string. 145,152 combinations with blinking, floating, and glancing animations — all deterministic and open-source.",
+    "openGraphDescription": "Generate unique, fully animated avatars from any string. Deterministic, customizable, and open-source."
+  },
+  "languageToggle": {
+    "switchToEnglish": "Switch to English",
+    "switchToFrench": "Switch to French"
+  },
+  "themeToggle": {
+    "switchToLight": "Switch to light theme",
+    "switchToDark": "Switch to dark theme"
+  },
+  "common": {
+    "copyToClipboard": "Copy to clipboard",
+    "packageManager": "Package manager"
+  },
+  "hero": {
+    "taglineFirst": "Tiny spirits, born from strings.",
+    "taglineSecond": "Always alive.",
+    "description": "Mimo (/miˈmoʊ/) is an open-source avatar system that generates unique characters from any string. Unlike traditional avatars, every Mimo is <strong>fully animated</strong> — blinking, floating, glancing — right out of the box. <strong>145,152</strong> unique combinations ensure no two avatars look alike."
+  },
+  "quickStart": {
+    "title": "Quick Start",
+    "intro": "Try it out — enter a name, adjust the options, and watch the avatar update live. Drop it into your project with the API or React component.",
+    "fields": {
+      "name": "Name",
+      "background": "Background",
+      "shape": "Shape",
+      "detail": "Detail",
+      "depth": "Depth",
+      "mood": "Mood",
+      "animations": "Animations"
+    },
+    "placeholder": "type anything...",
+    "randomize": "Randomize",
+    "apiDescription": "Generate avatars as SVG over HTTP. The <code>name</code> is the URL path — all options go in the query string.",
+    "reactDescription": "Import the <code>Mimo</code> component and pass a <code>name</code> string. Props match the API parameters."
+  },
+  "deterministic": {
+    "title": "Deterministic",
+    "description": "Avatars are derived from a hash of the input string — the same name always produces the same face. Fully deterministic, with nothing stored or fetched.",
+    "identical": "\"alice\" — always identical",
+    "differentNames": "Different names, different faces"
+  },
+  "combinations": {
+    "title": "145,152 Combinations",
+    "description": "Faces are assembled from <strong>6</strong> eye styles × <strong>4</strong> eyebrow types × <strong>7</strong> mouths × <strong>2</strong> cheek options × <strong>3</strong> accessories × <strong>16</strong> colors × <strong>9</strong> rotations.",
+    "categories": {
+      "eyes": "Eyes",
+      "mouths": "Mouths",
+      "eyebrows": "Eyebrows",
+      "cheeks": "Cheeks",
+      "accessories": "Accessories"
+    }
+  },
+  "colors": {
+    "title": "Colors",
+    "description": "Sixteen soft pastel gradients with radial rendering for a subtle 3D appearance.<br></br>Pass in a custom <code>gradients</code> array to use your own palette.",
+    "names": {
+      "lavender": "Lavender",
+      "peach": "Peach",
+      "mint": "Mint",
+      "sky": "Sky",
+      "coral": "Coral",
+      "butter": "Butter",
+      "sage": "Sage",
+      "blush": "Blush",
+      "sand": "Sand",
+      "ice": "Ice",
+      "orchid": "Orchid",
+      "steel": "Steel",
+      "cream": "Cream",
+      "iris": "Iris",
+      "rose": "Rose",
+      "fern": "Fern"
+    }
+  },
+  "variants": {
+    "title": "Variants",
+    "description": "Variants are pluggable visual styles. Each variant defines its own set of props — <code>mood</code>, <code>animations</code>, <code>detailLevel</code>, and more. Pass a variant factory directly or pre-configure it with a descriptor.",
+    "moreSoon": "More soon..."
+  },
+  "moods": {
+    "title": "Moods",
+    "description": "Set a mood to give the avatar a specific expression, regardless of the generated features.",
+    "items": {
+      "happy": { "label": "Happy", "description": "Curved eyes, grin" },
+      "surprised": { "label": "Surprised", "description": "Round eyes, O mouth" },
+      "sleepy": { "label": "Sleepy", "description": "Line eyes, flat mouth" },
+      "cool": { "label": "Cool", "description": "Sunglasses, smirk" },
+      "cheeky": { "label": "Cheeky", "description": "Wink, tongue, blush" }
+    }
+  },
+  "animations": {
+    "title": "Animations",
+    "description": "Pass an <code>animations</code> array to bring avatars to life. All animations are CSS-based and injected on demand — combine freely. Pass a string for defaults, or an object with <code>type</code>, <code>delay</code>, and <code>duration</code> for custom timing.",
+    "combined": "Combined"
+  },
+  "shape": {
+    "title": "Shape",
+    "description": "Choose between a circle, squircle, or square clip for the avatar."
+  },
+  "depthEffects": {
+    "title": "3D Effects",
+    "description": "Four depth levels for CSS 3D perspective transforms. The face tilts based on the deterministic rotation. In React, the face flattens on hover when <code>interactive</code> is enabled."
+  },
+  "detailLevels": {
+    "title": "Detail Levels",
+    "description": "Feature visibility automatically adapts to size. Smaller avatars show fewer features for clarity. Override with the <code>detailLevel</code> prop.",
+    "minimal": "< 32px — eyes only",
+    "basic": "32-48px — + mouth",
+    "standard": "48-64px — + eyebrows",
+    "full": ">= 64px — all features"
+  },
+  "customGradients": {
+    "title": "Custom Gradients",
+    "description": "Replace the default palette with your own gradient pairs via the <code>gradients</code> prop. The API accepts hex pairs like <code>E8D5F5-C7A4E0,FFE0D0-FFB899</code>."
+  },
+  "reference": {
+    "title": "Reference",
+    "description": "Props and API params share the same names. In the API, <code>name</code> is the URL path — all others are query params.",
+    "headers": {
+      "propertyParam": "Prop / Param",
+      "type": "Type",
+      "default": "Default",
+      "description": "Description"
+    },
+    "groups": {
+      "global": "Global",
+      "faces": "Faces"
+    },
+    "rows": {
+      "name": "Input string for deterministic generation. API: URL path segment.",
+      "size": "Avatar dimensions in pixels. React default: 40. API default: 128.",
+      "shape": "Avatar clipping shape. Squircle uses Apple-style continuous curvature.",
+      "variant": "Variant plugin to use for rendering.",
+      "interactive": "Enable hover interaction",
+      "background": "Background style",
+      "mood": "Override expression",
+      "detailLevel": "Feature visibility level. Adapts to size by default.",
+      "depth": "3D perspective transform depth",
+      "animations": "String or object with <code>type</code>, <code>delay</code>, and <code>duration</code>. API: comma-separated values.",
+      "gradients": "Custom gradient palette. API: hex pairs like <code>E8D5F5-C7A4E0,FFE0D0-FFB899</code>."
+    }
+  },
+  "notFound": {
+    "imageAlt": "Lost Mimo",
+    "title": "Page not found",
+    "description": "This spirit wandered off somewhere.",
+    "home": "Back to home"
+  },
+  "footer": {
+    "description": "Deterministic, animated, open-source avatars."
+  }
+}

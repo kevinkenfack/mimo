@@ -1,10 +1,12 @@
 import { Mimo } from 'mimo-id/react';
 import { faces } from 'mimo-id/variants';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 import { parseAsArrayOf, parseAsString, parseAsStringLiteral, useQueryState } from 'nuqs';
 import { useCallback, useRef, useState } from 'react';
 import { GRADIENTS, HERO_NAMES, MOODS, VARIETY_NAMES } from '../lib/constants';
 import { IconCheck, IconCopy, IconGitHub, IconShuffle } from '../lib/icons';
+import { LanguageToggle } from './language-toggle';
 import { CodeBlock, ScrollFade, Section } from './shared';
 import { ThemeToggle } from './theme-toggle';
 
@@ -16,6 +18,7 @@ const PACKAGE_MANAGERS = [
 ] as const;
 
 function InstallBanner() {
+  const t = useTranslations('common');
   const [pm, setPm] = useState<(typeof PACKAGE_MANAGERS)[number]['value']>('bun');
   const [copied, setCopied] = useState(false);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -35,11 +38,12 @@ function InstallBanner() {
       type='button'
       onClick={handleCopy}
       className='mb-1 inline-flex w-fit cursor-copy items-center gap-2 bg-transparent p-0 font-mono text-[0.6875rem] text-foreground-tertiary transition-colors hover:text-foreground-secondary'
-      title='Copy to clipboard'
+      title={t('copyToClipboard')}
     >
       <code className='bg-transparent p-0 text-inherit'>
         <select
           value={pm}
+          aria-label={t('packageManager')}
           onChange={(e) => {
             e.stopPropagation();
             setPm(e.target.value as typeof pm);
@@ -77,6 +81,8 @@ function InstallBanner() {
 }
 
 export function HeroSection() {
+  const t = useTranslations('hero');
+
   return (
     <header className='relative flex flex-col gap-2'>
       <div className='flex items-center justify-between'>
@@ -84,6 +90,7 @@ export function HeroSection() {
           Mimo
         </span>
         <div className='flex items-center gap-1'>
+          <LanguageToggle />
           <ThemeToggle />
           <Link
             href='https://github.com/kevinkenfack/mimo'
@@ -100,16 +107,15 @@ export function HeroSection() {
       <InstallBanner />
 
       <h1 className='[font-family:var(--font-serif),Georgia,serif] text-[2rem] leading-[1.2] font-normal tracking-[-0.02em] text-heading'>
-        Tiny spirits, born from strings.
+        {t('taglineFirst')}
         <br />
-        Always alive.
+        {t('taglineSecond')}
       </h1>
 
       <p className='text-[0.9375rem] leading-[1.55]'>
-        Mimo (/miˈmo/) is an open-source avatar system that generates unique characters from any string.
-        Unlike traditional avatars, every Mimo is <strong>fully animated</strong> — blinking, floating,
-        glancing — right out of the box. <strong>145,152</strong> unique combinations ensure no two avatars
-        look alike.
+        {t.rich('description', {
+          strong: (chunks) => <strong>{chunks}</strong>,
+        })}
       </p>
 
       <div className='mt-6 flex h-14 flex-wrap items-center gap-2.5 overflow-hidden'>
@@ -232,13 +238,14 @@ function AnimationRow({
   value: FacesAnimation[];
   onChange: (v: FacesAnimation[]) => void;
 }) {
+  const t = useTranslations('quickStart');
   const toggle = (anim: FacesAnimation) => {
     onChange(value.includes(anim) ? value.filter((a) => a !== anim) : [...value, anim]);
   };
 
   return (
     <li className='flex font-[450] text-[0.8125rem] leading-normal text-foreground-secondary'>
-      <strong className='w-22 shrink-0 font-[550] text-heading'>Animations</strong>
+      <strong className='w-22 shrink-0 font-[550] text-heading'>{t('fields.animations')}</strong>
       <span>
         {ANIMATION_OPTIONS.map((anim, i) => (
           <span key={anim}>
@@ -262,6 +269,7 @@ function AnimationRow({
 }
 
 export function QuickStartSection() {
+  const t = useTranslations('quickStart');
   const [tryName, setTryName] = useQueryState('name', parseAsString.withDefault('mimo'));
   const [shape, setShape] = useQueryState('shape', parseAsStringLiteral(SHAPE_OPTIONS).withDefault('circle'));
   const [depth, setDepth] = useQueryState(
@@ -311,32 +319,35 @@ export function QuickStartSection() {
   const sdkPropsStr = sdkProps.join('\n  ');
 
   return (
-    <Section title='Quick Start'>
-      <p>
-        Try it out — enter a name, adjust the options, and watch the avatar update live.
-        <br className='hidden sm:block' /> Drop it into your project with the API or React component.
-      </p>
+    <Section title={t('title')}>
+      <p>{t('intro')}</p>
 
       <div className='mt-3 flex items-start gap-5'>
         <ul className='flex min-w-0 flex-1 list-none flex-col gap-1 pl-0'>
           <li className='flex font-[450] text-[0.8125rem] leading-normal text-foreground-secondary'>
-            <strong className='w-22 shrink-0 font-[550] text-heading'>Name</strong>
+            <strong className='w-22 shrink-0 font-[550] text-heading'>{t('fields.name')}</strong>
             <input
               type='text'
               value={tryName}
               onChange={(event) => setTryName(event.target.value)}
-              placeholder='type anything...'
+              aria-label={t('fields.name')}
+              placeholder={t('placeholder')}
               className='border-none bg-transparent py-0 font-[450] text-[0.8125rem] text-accent outline-none placeholder:text-foreground-quaternary'
             />
           </li>
           <OptionRow
-            label='Background'
+            label={t('fields.background')}
             value={background}
             options={BACKGROUND_OPTIONS}
             onChange={setBackground}
           />
-          <OptionRow label='Shape' value={shape} options={SHAPE_OPTIONS} onChange={setShape} />
-          <OptionRow label='Detail' value={detailLevel} options={DETAIL_OPTIONS} onChange={setDetailLevel} />
+          <OptionRow label={t('fields.shape')} value={shape} options={SHAPE_OPTIONS} onChange={setShape} />
+          <OptionRow
+            label={t('fields.detail')}
+            value={detailLevel}
+            options={DETAIL_OPTIONS}
+            onChange={setDetailLevel}
+          />
         </ul>
 
         <div className='flex flex-col items-center gap-2'>
@@ -364,7 +375,7 @@ export function QuickStartSection() {
               setTimeout(() => setSpinning(false), 400);
             }}
             className='cursor-pointer bg-transparent p-0 text-foreground-tertiary transition-colors hover:text-foreground-secondary'
-            title='Randomize'
+            title={t('randomize')}
           >
             <IconShuffle
               className='h-3.5 w-3.5'
@@ -378,22 +389,24 @@ export function QuickStartSection() {
       </div>
 
       <ul className='flex list-none flex-col gap-1 pl-0'>
-        <OptionRow label='Depth' value={depth} options={DEPTH_OPTIONS} onChange={setDepth} />
-        <OptionRow label='Mood' value={mood} options={MOOD_OPTIONS} onChange={setMood} />
+        <OptionRow label={t('fields.depth')} value={depth} options={DEPTH_OPTIONS} onChange={setDepth} />
+        <OptionRow label={t('fields.mood')} value={mood} options={MOOD_OPTIONS} onChange={setMood} />
         <AnimationRow value={animations} onChange={setAnimations} />
       </ul>
 
       <h4 className='mt-5 mb-1 text-[0.75rem] font-[560] text-heading-tertiary'>API</h4>
       <p>
-        Generate avatars as SVG over HTTP. The <code>name</code> is the URL path — all options go in the query
-        string.
+        {t.rich('apiDescription', {
+          code: (chunks) => <code>{chunks}</code>,
+        })}
       </p>
       <CodeBlock>{`<img src="https://api.mimo.sh/${displayName}${apiQuery}" />`}</CodeBlock>
 
       <h4 className='mt-5 mb-1 text-[0.75rem] font-[560] text-heading-tertiary'>React</h4>
       <p>
-        Import the <code>Mimo</code> component and pass a <code>name</code> string. Props match the API
-        parameters.
+        {t.rich('reactDescription', {
+          code: (chunks) => <code>{chunks}</code>,
+        })}
       </p>
       <CodeBlock>{`import { Mimo } from "mimo-id/react";
 
@@ -405,12 +418,11 @@ export function QuickStartSection() {
 }
 
 export function DeterministicSection() {
+  const t = useTranslations('deterministic');
+
   return (
-    <Section title='Deterministic'>
-      <p>
-        Avatars are derived from a hash of the input string — the same name always produces the same face.
-        Fully deterministic, with nothing stored or fetched.
-      </p>
+    <Section title={t('title')}>
+      <p>{t('description')}</p>
 
       <div className='mt-3 flex flex-wrap gap-5 sm:gap-10 justify-between sm:justify-start'>
         <div className='flex flex-col items-center gap-1.5'>
@@ -419,9 +431,7 @@ export function DeterministicSection() {
             <Mimo name='alice' size={44} detailLevel='full' />
             <Mimo name='alice' size={44} detailLevel='full' />
           </div>
-          <span className='text-[0.6875rem] font-[450] text-foreground-tertiary'>
-            &quot;alice&quot; — always identical
-          </span>
+          <span className='text-[0.6875rem] font-[450] text-foreground-tertiary'>{t('identical')}</span>
         </div>
 
         <div className='flex flex-col items-center gap-1.5'>
@@ -430,9 +440,7 @@ export function DeterministicSection() {
             <Mimo name='bob' size={44} detailLevel='full' />
             <Mimo name='charlie' size={44} detailLevel='full' />
           </div>
-          <span className='text-[0.6875rem] font-[450] text-foreground-tertiary'>
-            Different names, different faces
-          </span>
+          <span className='text-[0.6875rem] font-[450] text-foreground-tertiary'>{t('differentNames')}</span>
         </div>
       </div>
     </Section>
@@ -440,6 +448,7 @@ export function DeterministicSection() {
 }
 
 export function CombinationsSection() {
+  const t = useTranslations('combinations');
   const combinations = {
     eyes: ['round', 'cross', 'line', 'curved', 'wink', 'heart'],
     mouths: ['smile', 'grin', 'o', 'cat', 'tongue', 'smirk', 'flat'],
@@ -449,19 +458,17 @@ export function CombinationsSection() {
   };
 
   return (
-    <Section title='145,152 Combinations'>
+    <Section title={t('title')}>
       <p>
-        Faces are assembled from <strong>6</strong> eye styles x <strong>4</strong> eyebrow types x{' '}
-        <strong>7</strong> mouths x <strong>2</strong> cheek options x <strong>3</strong> accessories x{' '}
-        <strong>16</strong> colors x <strong>9</strong> rotations.
+        {t.rich('description', {
+          strong: (chunks) => <strong>{chunks}</strong>,
+        })}
       </p>
 
       <ul className='mt-2 flex list-none flex-col gap-1 pl-0'>
         {Object.entries(combinations).map(([key, values]) => (
           <li key={key} className='flex text-[0.8125rem] leading-normal text-foreground-secondary'>
-            <strong className='w-22 shrink-0 font-[550] text-heading'>
-              {key.charAt(0).toUpperCase() + key.slice(1)}
-            </strong>
+            <strong className='w-22 shrink-0 font-[550] text-heading'>{t(`categories.${key}`)}</strong>
             <span className='text-foreground-tertiary'>
               {values.map((v, i) => (
                 <span key={`${key}-${v}`}>
@@ -484,17 +491,23 @@ export function CombinationsSection() {
 }
 
 export function ColorsSection() {
+  const t = useTranslations('colors');
+
   return (
-    <Section title='Colors'>
+    <Section title={t('title')}>
       <p>
-        Sixteen soft pastel gradients with radial rendering for a subtle 3D appearance. <br /> Pass in a
-        custom <code>gradients</code> array to use your own palette.
+        {t.rich('description', {
+          br: () => <br />,
+          code: (chunks) => <code>{chunks}</code>,
+        })}
       </p>
       <div className='mt-5 grid grid-cols-4 gap-4'>
         {GRADIENTS.map(({ name, pair }) => (
           <div key={name} className='flex flex-col items-center gap-1.5'>
             <Mimo name={name} size={52} gradients={pair} detailLevel='full' />
-            <span className='text-[0.6875rem] font-[450] text-foreground-tertiary'>{name}</span>
+            <span className='text-[0.6875rem] font-[450] text-foreground-tertiary'>
+              {t(`names.${name.toLowerCase()}`)}
+            </span>
           </div>
         ))}
       </div>
@@ -503,11 +516,14 @@ export function ColorsSection() {
 }
 
 export function VariantsSection() {
+  const t = useTranslations('variants');
+
   return (
-    <Section title='Variants'>
+    <Section title={t('title')}>
       <p>
-        Variants are pluggable visual styles. Each variant defines its own set of props — moods, animations,
-        detail levels, and more. Pass a variant factory directly or pre-configure it with a descriptor.
+        {t.rich('description', {
+          code: (chunks) => <code>{chunks}</code>,
+        })}
       </p>
 
       <CodeBlock>{`import { faces } from "mimo-id/variants";
@@ -534,7 +550,7 @@ export function VariantsSection() {
           >
             <span className='select-none text-base text-foreground-muted'>?</span>
           </div>
-          <span className='text-[0.6875rem] font-[450] text-foreground-tertiary'>More soon...</span>
+          <span className='text-[0.6875rem] font-[450] text-foreground-tertiary'>{t('moreSoon')}</span>
         </div>
       </div>
     </Section>
@@ -542,20 +558,24 @@ export function VariantsSection() {
 }
 
 export function MoodsSection() {
+  const t = useTranslations('moods');
+
   return (
-    <Section title='Moods'>
-      <p>Set a mood to give the avatar a specific expression, regardless of the generated features.</p>
+    <Section title={t('title')}>
+      <p>{t('description')}</p>
 
       <CodeBlock>{`<Mimo name="user" mood="happy" />
 <Mimo name="user" mood="cool" />`}</CodeBlock>
 
       <div className='mt-5 grid grid-cols-5 gap-3 max-[600px]:grid-cols-3'>
-        {MOODS.map(({ mood, label, desc }) => (
+        {MOODS.map((mood) => (
           <div key={mood} className='flex flex-col items-center gap-1.5 text-center'>
             <Mimo name='mood-demo' size={52} mood={mood} detailLevel='full' />
             <div className='flex flex-col items-center gap-0.5'>
-              <span className='text-xs font-medium text-heading'>{label}</span>
-              <span className='text-[0.625rem] leading-[1.4] text-foreground-tertiary'>{desc}</span>
+              <span className='text-xs font-medium text-heading'>{t(`items.${mood}.label`)}</span>
+              <span className='text-[0.625rem] leading-[1.4] text-foreground-tertiary'>
+                {t(`items.${mood}.description`)}
+              </span>
             </div>
           </div>
         ))}
@@ -565,12 +585,14 @@ export function MoodsSection() {
 }
 
 export function AnimationsSection() {
+  const t = useTranslations('animations');
+
   return (
-    <Section title='Animations'>
+    <Section title={t('title')}>
       <p>
-        Pass an <code>animations</code> array to bring avatars to life. All animations are CSS-based and
-        injected on demand — combine freely. Pass a string for defaults, or an object with <code>type</code>,{' '}
-        <code>delay</code>, and <code>duration</code> for custom timing.
+        {t.rich('description', {
+          code: (chunks) => <code>{chunks}</code>,
+        })}
       </p>
 
       <CodeBlock>{`<Mimo
@@ -623,7 +645,7 @@ export function AnimationsSection() {
             animations={['blink', 'float', 'sway', 'eyeWander', 'eyebrowBounce']}
             detailLevel='full'
           />
-          <span className='text-[0.6875rem] font-[450] text-foreground-tertiary'>combined</span>
+          <span className='text-[0.6875rem] font-[450] text-foreground-tertiary'>{t('combined')}</span>
         </div>
       </div>
     </Section>
@@ -631,9 +653,11 @@ export function AnimationsSection() {
 }
 
 export function ShapeSection() {
+  const t = useTranslations('shape');
+
   return (
-    <Section title='Shape'>
-      <p>Choose between a circle, squircle, or square clip for the avatar.</p>
+    <Section title={t('title')}>
+      <p>{t('description')}</p>
 
       <CodeBlock>{`<Mimo name="user" shape="circle" />
 <Mimo name="user" shape="squircle" />
@@ -652,11 +676,14 @@ export function ShapeSection() {
 }
 
 export function DepthEffectsSection() {
+  const t = useTranslations('depthEffects');
+
   return (
-    <Section title='3D Effects'>
+    <Section title={t('title')}>
       <p>
-        Four depth levels for CSS 3D perspective transforms. The face tilts based on the deterministic
-        rotation. In React, the face flattens on hover when <code>interactive</code> is enabled.
+        {t.rich('description', {
+          code: (chunks) => <code>{chunks}</code>,
+        })}
       </p>
 
       <CodeBlock>{`<Mimo name="user" depth="dramatic" />`}</CodeBlock>
@@ -674,11 +701,14 @@ export function DepthEffectsSection() {
 }
 
 export function DetailLevelsSection() {
+  const t = useTranslations('detailLevels');
+
   return (
-    <Section title='Detail Levels'>
+    <Section title={t('title')}>
       <p>
-        Feature visibility automatically adapts to size. Smaller avatars show fewer features for clarity.
-        Override with the <code>detailLevel</code> prop.
+        {t.rich('description', {
+          code: (chunks) => <code>{chunks}</code>,
+        })}
       </p>
 
       <div className='mt-5 flex flex-wrap items-end gap-6'>
@@ -686,9 +716,7 @@ export function DetailLevelsSection() {
           <Mimo name='detail' size={24} />
           <div className='flex flex-col items-center gap-0.5'>
             <span className='text-xs font-medium text-heading'>minimal</span>
-            <span className='text-[0.625rem] leading-[1.4] text-foreground-tertiary'>
-              &lt; 32px — eyes only
-            </span>
+            <span className='text-[0.625rem] leading-[1.4] text-foreground-tertiary'>{t('minimal')}</span>
           </div>
         </div>
 
@@ -696,7 +724,7 @@ export function DetailLevelsSection() {
           <Mimo name='detail' size={40} />
           <div className='flex flex-col items-center gap-0.5'>
             <span className='text-xs font-medium text-heading'>basic</span>
-            <span className='text-[0.625rem] leading-[1.4] text-foreground-tertiary'>32-48px — + mouth</span>
+            <span className='text-[0.625rem] leading-[1.4] text-foreground-tertiary'>{t('basic')}</span>
           </div>
         </div>
 
@@ -704,9 +732,7 @@ export function DetailLevelsSection() {
           <Mimo name='detail' size={56} />
           <div className='flex flex-col items-center gap-0.5'>
             <span className='text-xs font-medium text-heading'>standard</span>
-            <span className='text-[0.625rem] leading-[1.4] text-foreground-tertiary'>
-              48-64px — + eyebrows
-            </span>
+            <span className='text-[0.625rem] leading-[1.4] text-foreground-tertiary'>{t('standard')}</span>
           </div>
         </div>
 
@@ -714,9 +740,7 @@ export function DetailLevelsSection() {
           <Mimo name='detail' size={72} />
           <div className='flex flex-col items-center gap-0.5'>
             <span className='text-xs font-medium text-heading'>full</span>
-            <span className='text-[0.625rem] leading-[1.4] text-foreground-tertiary'>
-              &gt;= 64px — all features
-            </span>
+            <span className='text-[0.625rem] leading-[1.4] text-foreground-tertiary'>{t('full')}</span>
           </div>
         </div>
       </div>
@@ -725,11 +749,14 @@ export function DetailLevelsSection() {
 }
 
 export function CustomGradientsSection() {
+  const t = useTranslations('customGradients');
+
   return (
-    <Section title='Custom Gradients'>
+    <Section title={t('title')}>
       <p>
-        Replace the default palette with your own gradient pairs via the <code>gradients</code> prop. The API
-        accepts hex pairs like <code>E8D5F5-C7A4E0,FFE0D0-FFB899</code>.
+        {t.rich('description', {
+          code: (chunks) => <code>{chunks}</code>,
+        })}
       </p>
 
       <CodeBlock>{`const brand = [
@@ -750,6 +777,7 @@ export function CustomGradientsSection() {
 }
 
 export function ReferenceSection() {
+  const t = useTranslations('reference');
   const th =
     'border-b border-border-strong px-2.5 py-2 text-left text-[0.75rem] font-[560] whitespace-nowrap text-heading';
   const tdName =
@@ -769,22 +797,23 @@ export function ReferenceSection() {
   const thead = (
     <thead>
       <tr>
-        <th className={th}>Prop / Param</th>
-        <th className={th}>Type</th>
-        <th className={th}>Default</th>
-        <th className={th}>Description</th>
+        <th className={th}>{t('headers.propertyParam')}</th>
+        <th className={th}>{t('headers.type')}</th>
+        <th className={th}>{t('headers.default')}</th>
+        <th className={th}>{t('headers.description')}</th>
       </tr>
     </thead>
   );
 
   return (
-    <Section title='Reference'>
+    <Section title={t('title')}>
       <p>
-        Props and API params share the same names. In the API, <code>name</code> is the URL path — all others
-        are query params.
+        {t.rich('description', {
+          code: (chunks) => <code>{chunks}</code>,
+        })}
       </p>
 
-      <h4 className='mt-4 mb-1 text-[0.75rem] font-[560] text-heading-tertiary'>Global</h4>
+      <h4 className='mt-4 mb-1 text-[0.75rem] font-[560] text-heading-tertiary'>{t('groups.global')}</h4>
       <ScrollFade>
         <table className='w-full border-collapse text-[0.8125rem]'>
           {thead}
@@ -793,39 +822,37 @@ export function ReferenceSection() {
               <td className={tdName}>name</td>
               <td className={tdType}>string</td>
               <td className={tdDefault}>-</td>
-              <td className={tdDesc}>Input string for deterministic generation. API: URL path segment.</td>
+              <td className={tdDesc}>{t('rows.name')}</td>
             </tr>
             <tr>
               <td className={tdName}>size</td>
               <td className={tdType}>number</td>
               <td className={tdDefault}>40 / 128</td>
-              <td className={tdDesc}>Avatar dimensions in pixels. React default: 40. API default: 128.</td>
+              <td className={tdDesc}>{t('rows.size')}</td>
             </tr>
             <tr>
               <td className={tdName}>shape</td>
               <td className={tdType}>{'"circle" | "squircle" | "square"'}</td>
               <td className={tdDefault}>{'"circle"'}</td>
-              <td className={tdDesc}>
-                Avatar clipping shape. Squircle uses Apple-style continuous curvature.
-              </td>
+              <td className={tdDesc}>{t('rows.shape')}</td>
             </tr>
             <tr>
               <td className={tdName}>variant</td>
               <td className={tdType}>{'"faces"'}</td>
               <td className={tdDefault}>{'"faces"'}</td>
-              <td className={tdDesc}>Variant plugin to use for rendering.</td>
+              <td className={tdDesc}>{t('rows.variant')}</td>
             </tr>
             <tr>
               <td className={tdName}>interactive{reactOnly}</td>
               <td className={tdType}>boolean</td>
               <td className={tdDefault}>true</td>
-              <td className={tdDesc}>Enable hover interaction</td>
+              <td className={tdDesc}>{t('rows.interactive')}</td>
             </tr>
           </tbody>
         </table>
       </ScrollFade>
 
-      <h4 className='mt-5 mb-1 text-[0.75rem] font-[560] text-heading-tertiary'>Faces</h4>
+      <h4 className='mt-5 mb-1 text-[0.75rem] font-[560] text-heading-tertiary'>{t('groups.faces')}</h4>
       <ScrollFade>
         <table className='w-full border-collapse text-[0.8125rem]'>
           {thead}
@@ -834,25 +861,25 @@ export function ReferenceSection() {
               <td className={tdName}>background</td>
               <td className={tdType}>{'"gradient" | "solid"'}</td>
               <td className={tdDefault}>{'"gradient"'}</td>
-              <td className={tdDesc}>Background style</td>
+              <td className={tdDesc}>{t('rows.background')}</td>
             </tr>
             <tr>
               <td className={tdName}>mood</td>
               <td className={tdType}>{'"happy" | "surprised" | "sleepy" | "cool" | "cheeky"'}</td>
               <td className={tdDefault}>-</td>
-              <td className={tdDesc}>Override expression</td>
+              <td className={tdDesc}>{t('rows.mood')}</td>
             </tr>
             <tr>
               <td className={tdName}>detailLevel</td>
               <td className={tdType}>{'"minimal" | "basic" | "standard" | "full"'}</td>
               <td className={tdDefault}>auto</td>
-              <td className={tdDesc}>Feature visibility level. Adapts to size by default.</td>
+              <td className={tdDesc}>{t('rows.detailLevel')}</td>
             </tr>
             <tr>
               <td className={tdName}>depth</td>
               <td className={tdType}>{'"none" | "subtle" | "medium" | "dramatic"'}</td>
               <td className={tdDefault}>{'"dramatic"'}</td>
-              <td className={tdDesc}>3D perspective transform depth</td>
+              <td className={tdDesc}>{t('rows.depth')}</td>
             </tr>
             <tr>
               <td className={tdName}>animations</td>
@@ -863,7 +890,9 @@ export function ReferenceSection() {
               </td>
               <td className={tdDefault}>[]</td>
               <td className={tdDesc}>
-                String or <code>{'{ type, delay?, duration? }'}</code>. API: comma-separated strings.
+                {t.rich('rows.animations', {
+                  code: (chunks) => <code>{chunks}</code>,
+                })}
               </td>
             </tr>
             <tr>
@@ -871,7 +900,9 @@ export function ReferenceSection() {
               <td className={tdType}>{'GradientPair<{ from: string, to: string }>[]'}</td>
               <td className={tdDefault}>-</td>
               <td className={tdDesc}>
-                Custom gradient palette. API: hex pairs like <code>E8D5F5-C7A4E0,FFE0D0-FFB899</code>
+                {t.rich('rows.gradients', {
+                  code: (chunks) => <code>{chunks}</code>,
+                })}
               </td>
             </tr>
           </tbody>
@@ -882,10 +913,13 @@ export function ReferenceSection() {
 }
 
 export function PageFooter() {
+  const t = useTranslations('footer');
+
   return (
     <footer className='mx-auto flex max-w-152 items-center justify-between border-t border-border px-6 py-4 text-xs text-foreground-tertiary'>
       <span>
-        <span className='hidden sm:inline'>Mimo — </span>Deterministic, animated, open-source avatars.
+        <span className='hidden sm:inline'>Mimo — </span>
+        {t('description')}
       </span>
       <Link
         href='https://github.com/kevinkenfack/mimo'

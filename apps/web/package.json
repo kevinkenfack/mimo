@@ -13,6 +13,7 @@
     "@vercel/analytics": "^1.6.1",
     "mimo-id": "workspace:*",
     "next": "16.1.6",
+    "next-intl": "^4.14.9",
     "nuqs": "^2.8.8",
     "react": "19.2.3",
     "react-dom": "19.2.3"

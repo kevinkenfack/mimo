@@ -2,6 +2,7 @@ import { Analytics } from '@vercel/analytics/next';
 import type { Metadata, Viewport } from 'next';
 import { Geist_Mono, Instrument_Serif } from 'next/font/google';
 import localFont from 'next/font/local';
+import { getLocale, getTranslations } from 'next-intl/server';
 import { NuqsAdapter } from 'nuqs/adapters/next/app';
 import { ThemeProvider } from '../components/theme-provider';
 import './globals.css';
@@ -37,37 +38,50 @@ export const viewport: Viewport = {
   maximumScale: 1,
 };
 
-export const metadata: Metadata = {
-  title: 'Mimo — Animated avatar system for developers',
-  description:
-    'Generate unique, fully animated avatars from any string. 145,152 combinations with blinking, floating, and glancing animations — all deterministic and open-source.',
-  metadataBase: new URL(SITE_URL),
-  openGraph: {
-    title: 'Mimo — Animated avatar system for developers',
-    description:
-      'Generate unique, fully animated avatars from any string. Deterministic, customizable, and open-source.',
-    siteName: 'Mimo',
-    locale: 'en_US',
-    type: 'website',
-    images: [{ url: '/api/og', width: 1200, height: 630 }],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Mimo — Animated avatar system for developers',
-    description:
-      'Generate unique, fully animated avatars from any string. Deterministic, customizable, and open-source.',
-    images: ['/api/og'],
-  },
-  keywords: ['avatar', 'generative', 'animated', 'deterministic', 'open-source', 'react', 'svg'],
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale();
+  const t = await getTranslations({ locale, namespace: 'metadata' });
+  const title = t('title');
+  const description = t('description');
+  const openGraphDescription = t('openGraphDescription');
 
-export default function RootLayout({
+  return {
+    title,
+    description,
+    metadataBase: new URL(SITE_URL),
+    alternates: {
+      languages: {
+        en: '/',
+        fr: '/fr',
+      },
+    },
+    openGraph: {
+      title,
+      description: openGraphDescription,
+      siteName: 'Mimo',
+      locale: locale === 'fr' ? 'fr_FR' : 'en_US',
+      type: 'website',
+      images: [{ url: '/api/og', width: 1200, height: 630 }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description: openGraphDescription,
+      images: ['/api/og'],
+    },
+    keywords: ['avatar', 'generative', 'animated', 'deterministic', 'open-source', 'react', 'svg'],
+  };
+}
+
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getLocale();
+
   return (
-    <html lang='en' suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{
