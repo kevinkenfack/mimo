@@ -90,9 +90,9 @@ export function HeroSection() {
             target='_blank'
             rel='noopener noreferrer'
             title='GitHub'
-            className='inline-flex h-7 w-7 items-center justify-center rounded-md p-1 text-foreground-quaternary transition-colors hover:text-foreground-tertiary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-foreground-quaternary'
+            className='inline-flex h-7 w-7 items-center justify-center rounded-md p-1 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-foreground-quaternary'
           >
-            <IconGitHub className='h-4.5 w-4.5' />
+            <IconGitHub className='h-4 w-4 text-foreground-quaternary transition-colors hover:text-foreground-tertiary' />
           </Link>
         </div>
       </div>
