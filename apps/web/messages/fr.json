@@ -4,6 +4,100 @@
     "description": "Générez des avatars uniques et entièrement animés à partir de n’importe quelle chaîne. 145 152 combinaisons avec clignements, mouvements flottants et regards mobiles — le tout déterministe et open source.",
     "openGraphDescription": "Générez des avatars uniques et entièrement animés à partir de n’importe quelle chaîne. Déterministes, personnalisables et open source."
   },
+  "playground": {
+    "metadata": {
+      "title": "Playground Mimo — Créez votre avatar",
+      "description": "Explorez les expressions, les formes, les palettes et les animations. Personnalisez votre Mimo en direct, puis téléchargez-le en PNG ou SVG."
+    },
+    "cta": "Découvrir le playground",
+    "eyebrow": "Playground Mimo",
+    "title": "Créez un Mimo qui vous ressemble.",
+    "description": "Choisissez un nom, ajustez l’expression et les couleurs, puis exportez un avatar prêt à l’emploi.",
+    "home": "Accueil",
+    "controls": {
+      "title": "Personnalisez votre Mimo",
+      "description": "Chaque réglage actualise l’aperçu instantanément.",
+      "name": "Nom ou mot",
+      "nameHint": "Un même nom produit toujours le même Mimo.",
+      "placeholder": "Essayez un nom, un mot ou une phrase",
+      "randomize": "Me surprendre",
+      "reset": "Réinitialiser",
+      "shape": "Forme",
+      "background": "Arrière-plan",
+      "palette": "Palette de couleurs",
+      "mood": "Expression",
+      "detail": "Niveau de détail",
+      "depth": "Profondeur",
+      "animation": "Mouvement"
+    },
+    "options": {
+      "shapes": {
+        "circle": "Cercle",
+        "squircle": "Carré arrondi",
+        "square": "Carré"
+      },
+      "backgrounds": {
+        "gradient": "Dégradé pastel",
+        "solid": "Couleur unie"
+      },
+      "moods": {
+        "none": "Laisser le nom choisir",
+        "happy": "Heureux",
+        "surprised": "Surpris",
+        "sleepy": "Somnolent",
+        "cool": "Décontracté",
+        "cheeky": "Malicieux"
+      },
+      "details": {
+        "minimal": "Minimal",
+        "basic": "Basique",
+        "standard": "Standard",
+        "full": "Complet"
+      },
+      "depths": {
+        "none": "Plat",
+        "subtle": "Subtile",
+        "medium": "Moyenne",
+        "dramatic": "Marquée"
+      },
+      "animations": {
+        "none": "Aucune",
+        "blink": "Clignement",
+        "float": "Flottement",
+        "sway": "Balancement",
+        "eyeWander": "Regard mobile",
+        "eyebrowBounce": "Sourcils animés",
+        "glance": "Regard furtif",
+        "entrance": "Apparition"
+      }
+    },
+    "preview": {
+      "eyebrow": "Votre création",
+      "title": "Aperçu en direct",
+      "description": "Un nouveau visage, façonné par vos choix.",
+      "ariaLabel": "Avatar Mimo pour {name}",
+      "settingsLabel": "Réglages de l’avatar sélectionnés",
+      "canvasLabel": "Zone d’aperçu de l’avatar",
+      "canvasTools": "Outils de l’aperçu",
+      "copyPng": "Copier le PNG",
+      "copying": "Préparation du PNG…",
+      "copySuccess": "PNG copié dans le presse-papiers.",
+      "copyError": "Impossible de copier le PNG. Vérifiez les autorisations du presse-papiers.",
+      "zoomIn": "Agrandir l’aperçu",
+      "zoomOut": "Réduire l’aperçu"
+    },
+    "export": {
+      "eyebrow": "Export",
+      "title": "Télécharger votre avatar",
+      "description": "Choisissez l’échelle et le format du fichier.",
+      "scale": "Échelle",
+      "format": "Format",
+      "download": "Télécharger {format}",
+      "downloadAll": "Tout télécharger (.ZIP)",
+      "downloadAllHint": "PNG + SVG réunis dans une archive ZIP.",
+      "note": "Les exports sont statiques ; l’animation reste dans l’aperçu en direct."
+    }
+  },
   "languageToggle": {
     "switchToEnglish": "Passer à l’anglais",
     "switchToFrench": "Passer au français"

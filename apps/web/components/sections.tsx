@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import { parseAsArrayOf, parseAsString, parseAsStringLiteral, useQueryState } from 'nuqs';
 import { useCallback, useRef, useState } from 'react';
+import { Link as LocaleLink } from '@/i18n/navigation';
 import { GRADIENTS, HERO_NAMES, MOODS, VARIETY_NAMES } from '../lib/constants';
 import { IconCheck, IconCopy, IconGitHub, IconShuffle } from '../lib/icons';
 import { LanguageToggle } from './language-toggle';
@@ -82,6 +83,7 @@ function InstallBanner() {
 
 export function HeroSection() {
   const t = useTranslations('hero');
+  const playgroundT = useTranslations('playground');
 
   return (
     <header className='relative flex flex-col gap-2'>
@@ -117,6 +119,14 @@ export function HeroSection() {
           strong: (chunks) => <strong>{chunks}</strong>,
         })}
       </p>
+
+      <LocaleLink
+        href='/playground'
+        className='mt-3 inline-flex w-fit items-center gap-2 rounded-full bg-foreground px-4 py-2.5 text-xs font-medium text-background transition-opacity hover:opacity-85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50'
+      >
+        {playgroundT('cta')}
+        <span aria-hidden='true'>→</span>
+      </LocaleLink>
 
       <div className='mt-6 flex h-14 flex-wrap items-center gap-2.5 overflow-hidden'>
         {HERO_NAMES.map((name, i) => (
