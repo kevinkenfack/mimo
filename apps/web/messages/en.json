@@ -4,6 +4,85 @@
     "description": "Generate unique, fully animated avatars from any string. 145,152 combinations with blinking, floating, and glancing animations — all deterministic and open-source.",
     "openGraphDescription": "Generate unique, fully animated avatars from any string. Deterministic, customizable, and open-source."
   },
+  "playground": {
+    "metadata": {
+      "title": "Mimo Playground — Create your avatar",
+      "description": "Explore expressions, shapes, color palettes and motion. Customize your Mimo live, then download a crisp PNG or SVG."
+    },
+    "cta": "Open the playground",
+    "eyebrow": "Mimo playground",
+    "title": "Meet your new Mimo.",
+    "description": "Start with a name, play with expressions and color, then export a ready-to-use avatar.",
+    "home": "Home",
+    "controls": {
+      "title": "Make it yours",
+      "description": "Every change updates your preview instantly.",
+      "name": "Name or word",
+      "nameHint": "The same name always creates the same Mimo.",
+      "placeholder": "Try a name, word or phrase",
+      "randomize": "Surprise me",
+      "reset": "Reset",
+      "shape": "Shape",
+      "background": "Background",
+      "palette": "Color palette",
+      "mood": "Expression",
+      "detail": "Details",
+      "depth": "Depth",
+      "animation": "Motion",
+      "exportSize": "Export size"
+    },
+    "options": {
+      "shapes": {
+        "circle": "Circle",
+        "squircle": "Rounded square",
+        "square": "Square"
+      },
+      "backgrounds": {
+        "gradient": "Pastel gradient",
+        "solid": "Solid color"
+      },
+      "moods": {
+        "none": "Let the name decide",
+        "happy": "Happy",
+        "surprised": "Surprised",
+        "sleepy": "Sleepy",
+        "cool": "Cool",
+        "cheeky": "Cheeky"
+      },
+      "details": {
+        "minimal": "Minimal",
+        "basic": "Basic",
+        "standard": "Standard",
+        "full": "Full"
+      },
+      "depths": {
+        "none": "Flat",
+        "subtle": "Subtle",
+        "medium": "Medium",
+        "dramatic": "Dramatic"
+      },
+      "animations": {
+        "none": "Still",
+        "blink": "Blink",
+        "float": "Float",
+        "sway": "Sway",
+        "eyeWander": "Wandering eyes",
+        "eyebrowBounce": "Bouncing eyebrows",
+        "glance": "Glance",
+        "entrance": "Entrance"
+      }
+    },
+    "preview": {
+      "eyebrow": "Your creation",
+      "title": "Live preview",
+      "description": "A new face, shaped by your choices.",
+      "ariaLabel": "Mimo avatar for {name}",
+      "settingsLabel": "Selected avatar settings",
+      "downloadPng": "Download PNG",
+      "downloadSvg": "Download SVG",
+      "exportNote": "Downloads are static images. Motion remains in the live preview."
+    }
+  },
   "languageToggle": {
     "switchToEnglish": "Switch to English",
     "switchToFrench": "Switch to French"
