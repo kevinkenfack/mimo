@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { useEffect, useState } from 'react';
 import { useTheme } from '../hooks/use-theme';
 import { IconAppearanceDarkMode, IconAppearanceLightMode } from '../lib/icons';
@@ -9,6 +10,7 @@ export interface ThemeToggleProps {
 }
 
 export function ThemeToggle({ className = '' }: ThemeToggleProps) {
+  const t = useTranslations('themeToggle');
   const { resolvedTheme, toggleTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
@@ -33,8 +35,8 @@ export function ThemeToggle({ className = '' }: ThemeToggleProps) {
     <button
       type='button'
       onClick={toggleTheme}
-      aria-label={isDark ? 'Passer au thème clair' : 'Passer au thème sombre'}
-      title={isDark ? 'Passer au thème clair' : 'Passer au thème sombre'}
+      aria-label={isDark ? t('switchToLight') : t('switchToDark')}
+      title={isDark ? t('switchToLight') : t('switchToDark')}
       className={`inline-flex h-7 w-7 items-center justify-center rounded-md p-1 text-foreground-quaternary transition-colors hover:text-foreground-tertiary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-foreground-quaternary cursor-pointer ${className}`}
     >
       {isDark ? (

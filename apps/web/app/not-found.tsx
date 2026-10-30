@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-export default function NotFound() {
+export default function NotFoundFallback() {
   const path = usePathname();
 
   return (
@@ -15,10 +15,10 @@ export default function NotFound() {
         height={96}
         alt='Lost mimo'
       />
-      <h1 className='[font-family:var(--font-serif),Georgia,serif] text-[2rem] leading-[1.2] font-normal tracking-[-0.02em] text-heading mt-6'>
+      <h1 className='[font-family:var(--font-serif),Georgia,serif] mt-6 text-[2rem] leading-[1.2] font-normal tracking-[-0.02em] text-heading'>
         Page not found
       </h1>
-      <p className='text-[0.9375rem] leading-[1.55] text-foreground-tertiary mt-1'>
+      <p className='mt-1 text-[0.9375rem] leading-[1.55] text-foreground-tertiary'>
         This spirit wandered off somewhere.
       </p>
       <Link

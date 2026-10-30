@@ -29,13 +29,7 @@ export const VARIETY_NAMES = [
   'xena',
 ] as const;
 
-export const MOODS: { mood: FacesMood; label: string; desc: string }[] = [
-  { mood: 'happy', label: 'Happy', desc: 'Curved eyes, grin' },
-  { mood: 'surprised', label: 'Surprised', desc: 'Round eyes, O mouth' },
-  { mood: 'sleepy', label: 'Sleepy', desc: 'Line eyes, flat mouth' },
-  { mood: 'cool', label: 'Cool', desc: 'Sunglasses, smirk' },
-  { mood: 'cheeky', label: 'Cheeky', desc: 'Wink, tongue, blush' },
-];
+export const MOODS: FacesMood[] = ['happy', 'surprised', 'sleepy', 'cool', 'cheeky'];
 
 export const GRADIENTS: { name: string; pair: { from: string; to: string }[] }[] = [
   { name: 'Lavender', pair: [{ from: '#E8D5F5', to: '#C7A4E0' }] },

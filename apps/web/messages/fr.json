@@ -1,0 +1,157 @@
+{
+  "metadata": {
+    "title": "Mimo — Système d’avatars animés pour développeurs",
+    "description": "Générez des avatars uniques et entièrement animés à partir de n’importe quelle chaîne. 145 152 combinaisons avec clignements, mouvements flottants et regards mobiles — le tout déterministe et open source.",
+    "openGraphDescription": "Générez des avatars uniques et entièrement animés à partir de n’importe quelle chaîne. Déterministes, personnalisables et open source."
+  },
+  "languageToggle": {
+    "switchToEnglish": "Passer à l’anglais",
+    "switchToFrench": "Passer au français"
+  },
+  "themeToggle": {
+    "switchToLight": "Passer au thème clair",
+    "switchToDark": "Passer au thème sombre"
+  },
+  "common": {
+    "copyToClipboard": "Copier dans le presse-papiers",
+    "packageManager": "Gestionnaire de paquets"
+  },
+  "hero": {
+    "taglineFirst": "De petits esprits nés de chaînes de caractères.",
+    "taglineSecond": "Toujours animés.",
+    "description": "Mimo (/miˈmo/) est un système d’avatars open source qui génère des personnages uniques à partir de n’importe quelle chaîne. Contrairement aux avatars classiques, chaque Mimo est <strong>entièrement animé</strong> — cligne des yeux, flotte et jette des regards — dès la première utilisation. <strong>145 152</strong> combinaisons uniques garantissent que deux avatars ne se ressemblent jamais."
+  },
+  "quickStart": {
+    "title": "Démarrage rapide",
+    "intro": "Essayez : entrez un nom, ajustez les options et regardez l’avatar évoluer en direct. Intégrez-le à votre projet avec l’API ou le composant React.",
+    "fields": {
+      "name": "Nom",
+      "background": "Arrière-plan",
+      "shape": "Forme",
+      "detail": "Détails",
+      "depth": "Profondeur",
+      "mood": "Expression",
+      "animations": "Animations"
+    },
+    "placeholder": "saisissez n’importe quoi…",
+    "randomize": "Générer au hasard",
+    "apiDescription": "Générez des avatars au format SVG via HTTP. <code>name</code> correspond au segment de l’URL ; toutes les autres options passent dans la chaîne de requête.",
+    "reactDescription": "Importez le composant <code>Mimo</code> et transmettez-lui une chaîne <code>name</code>. Ses props correspondent aux paramètres de l’API."
+  },
+  "deterministic": {
+    "title": "Déterministe",
+    "description": "Les avatars sont dérivés du hachage de la chaîne saisie : un même nom produit toujours le même visage. La génération est entièrement déterministe ; rien n’est stocké ni récupéré.",
+    "identical": "« alice » — toujours identiques",
+    "differentNames": "Noms différents, visages différents"
+  },
+  "combinations": {
+    "title": "145 152 combinaisons",
+    "description": "Les visages sont composés de <strong>6</strong> styles d’yeux × <strong>4</strong> types de sourcils × <strong>7</strong> bouches × <strong>2</strong> options de joues × <strong>3</strong> accessoires × <strong>16</strong> couleurs × <strong>9</strong> rotations.",
+    "categories": {
+      "eyes": "Yeux",
+      "mouths": "Bouches",
+      "eyebrows": "Sourcils",
+      "cheeks": "Joues",
+      "accessories": "Accessoires"
+    }
+  },
+  "colors": {
+    "title": "Couleurs",
+    "description": "Seize dégradés pastel doux, avec un rendu radial pour un effet 3D subtil.<br></br>Transmettez un tableau <code>gradients</code> personnalisé pour utiliser votre propre palette.",
+    "names": {
+      "lavender": "Lavande",
+      "peach": "Pêche",
+      "mint": "Menthe",
+      "sky": "Ciel",
+      "coral": "Corail",
+      "butter": "Jaune beurre",
+      "sage": "Sauge",
+      "blush": "Rose poudré",
+      "sand": "Sable",
+      "ice": "Glace",
+      "orchid": "Orchidée",
+      "steel": "Acier",
+      "cream": "Crème",
+      "iris": "Iris",
+      "rose": "Rose",
+      "fern": "Fougère"
+    }
+  },
+  "variants": {
+    "title": "Variantes",
+    "description": "Les variantes sont des styles visuels modulaires. Chacune définit son propre ensemble de propriétés — <code>mood</code>, <code>animations</code>, <code>detailLevel</code>, etc. Passez directement une fabrique de variante ou préconfigurez-la avec un descripteur.",
+    "moreSoon": "D’autres bientôt…"
+  },
+  "moods": {
+    "title": "Expressions",
+    "description": "Choisissez une expression à appliquer à l’avatar, indépendamment des traits générés.",
+    "items": {
+      "happy": { "label": "Heureux", "description": "Yeux arqués, grand sourire" },
+      "surprised": { "label": "Surpris", "description": "Yeux ronds, bouche en O" },
+      "sleepy": { "label": "Somnolent", "description": "Yeux en trait, bouche neutre" },
+      "cool": { "label": "Décontracté", "description": "Lunettes de soleil, sourire en coin" },
+      "cheeky": { "label": "Malicieux", "description": "Clin d’œil, langue tirée, joues roses" }
+    }
+  },
+  "animations": {
+    "title": "Animations",
+    "description": "Passez un tableau <code>animations</code> pour donner vie aux avatars. Toutes les animations reposent sur CSS et sont injectées à la demande : combinez-les librement. Passez une chaîne pour utiliser les valeurs par défaut, ou un objet avec <code>type</code>, <code>delay</code> et <code>duration</code> pour personnaliser le timing.",
+    "combined": "Combinées"
+  },
+  "shape": {
+    "title": "Forme",
+    "description": "Choisissez une découpe circulaire, squircle ou carrée pour l’avatar."
+  },
+  "depthEffects": {
+    "title": "Effets 3D",
+    "description": "Quatre niveaux de profondeur pour les transformations de perspective 3D en CSS. Le visage s’incline selon la rotation déterministe. Dans React, il s’aplatit au survol lorsque <code>interactive</code> est activé."
+  },
+  "detailLevels": {
+    "title": "Niveaux de détail",
+    "description": "La visibilité des traits s’adapte automatiquement à la taille. Les petits avatars affichent moins de détails pour rester lisibles. Remplacez ce comportement avec la prop <code>detailLevel</code>.",
+    "minimal": "< 32px — les yeux uniquement",
+    "basic": "32-48px — + la bouche",
+    "standard": "48-64px — + les sourcils",
+    "full": ">= 64px — tous les traits"
+  },
+  "customGradients": {
+    "title": "Dégradés personnalisés",
+    "description": "Remplacez la palette par défaut par vos propres paires de dégradés avec la prop <code>gradients</code>. L’API accepte des paires hexadécimales comme <code>E8D5F5-C7A4E0,FFE0D0-FFB899</code>."
+  },
+  "reference": {
+    "title": "Référence",
+    "description": "Les props et les paramètres de l’API portent les mêmes noms. Dans l’API, <code>name</code> est le segment de chemin de l’URL ; tous les autres sont des paramètres de requête.",
+    "headers": {
+      "propertyParam": "Propriété / paramètre",
+      "type": "Type",
+      "default": "Par défaut",
+      "description": "Description"
+    },
+    "groups": {
+      "global": "Général",
+      "faces": "Faces"
+    },
+    "rows": {
+      "name": "Chaîne d’entrée pour une génération déterministe. API : segment de chemin de l’URL.",
+      "size": "Dimensions de l’avatar en pixels. Valeur par défaut pour React : 40. Valeur par défaut pour l’API : 128.",
+      "shape": "Forme de découpe de l’avatar. Squircle utilise une courbure continue de type Apple.",
+      "variant": "Extension de variante à utiliser pour le rendu.",
+      "interactive": "Activer l’interaction au survol.",
+      "background": "Style d’arrière-plan.",
+      "mood": "Remplacer l’expression.",
+      "detailLevel": "Niveau de visibilité des traits. S’adapte à la taille par défaut.",
+      "depth": "Profondeur de transformation de perspective 3D.",
+      "animations": "Chaîne ou objet avec <code>type</code>, <code>delay</code> et <code>duration</code>. API : valeurs séparées par des virgules.",
+      "gradients": "Palette de dégradés personnalisée. API : paires hexadécimales comme <code>E8D5F5-C7A4E0,FFE0D0-FFB899</code>."
+    }
+  },
+  "notFound": {
+    "imageAlt": "Mimo égaré",
+    "title": "Page introuvable",
+    "description": "Cet esprit s’est égaré quelque part.",
+    "home": "Retour à l’accueil"
+  },
+  "footer": {
+    "description": "Des avatars déterministes, animés et open source."
+  }
+}
