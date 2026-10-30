@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from 'next';
 import { Geist_Mono, Instrument_Serif } from 'next/font/google';
 import localFont from 'next/font/local';
 import { NuqsAdapter } from 'nuqs/adapters/next/app';
+import { ThemeProvider } from '../components/theme-provider';
 import './globals.css';
 
 const openRunde = localFont({
@@ -66,10 +67,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en'>
+    <html lang='en' suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem("mimo-theme");var r=t==="dark"||(t!=="light"&&window.matchMedia("(prefers-color-scheme: dark)").matches);if(r){document.documentElement.classList.add("dark");document.documentElement.style.colorScheme="dark"}else{document.documentElement.classList.remove("dark");document.documentElement.style.colorScheme="light"}}catch(e){}})()`,
+          }}
+        />
+      </head>
       <body className={`${openRunde.variable} ${geistMono.variable} ${instrumentSerif.variable} antialiased`}>
-        <Analytics />
-        <NuqsAdapter>{children}</NuqsAdapter>
+        <ThemeProvider>
+          <Analytics />
+          <NuqsAdapter>{children}</NuqsAdapter>
+        </ThemeProvider>
       </body>
     </html>
   );

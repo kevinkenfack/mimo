@@ -454,6 +454,7 @@ const MimoImpl = (
       }}
       ref={ref}
       style={{
+        color: '#000',
         width: sizeValue,
         height: sizeValue,
         borderRadius: SHAPE_BORDER_RADIUS[shape],

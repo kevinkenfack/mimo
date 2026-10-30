@@ -1,6 +1,10 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
+  color-scheme: light;
+
   --background: #faf9f7;
   --foreground: #111111;
 
@@ -46,6 +50,62 @@
   --selection-foreground: #111111;
 
   --divider: rgba(0, 0, 0, 0.08);
+
+  --scrollbar-thumb: rgba(0, 0, 0, 0.15);
+  --scrollbar-thumb-hover: rgba(0, 0, 0, 0.25);
+}
+
+.dark {
+  color-scheme: dark;
+
+  --background: #141413;
+  --foreground: #f2f1ed;
+
+  --foreground-secondary: rgba(255, 255, 255, 0.65);
+  --foreground-tertiary: rgba(255, 255, 255, 0.42);
+  --foreground-quaternary: rgba(255, 255, 255, 0.26);
+  --foreground-muted: rgba(255, 255, 255, 0.18);
+
+  --heading: rgba(255, 255, 255, 0.92);
+  --heading-secondary: rgba(255, 255, 255, 0.82);
+  --heading-tertiary: rgba(255, 255, 255, 0.62);
+
+  --code-foreground: rgba(255, 255, 255, 0.8);
+  --code-inline-background: #232321;
+  --code-background: #1b1b1a;
+  --code-block-foreground: #d4d3ce;
+
+  --code-keyword: #a78bfa;
+  --code-string: #4ade80;
+  --code-tag: #fbbf24;
+  --code-attr-name: #60a5fa;
+  --code-attr-value: #4ade80;
+  --code-comment: rgba(255, 255, 255, 0.35);
+  --code-punctuation: rgba(255, 255, 255, 0.3);
+  --code-url-path: #fbbf24;
+  --code-url-param-key: #60a5fa;
+  --code-url-param-value: #4ade80;
+
+  --accent: #6b8cff;
+
+  --surface: rgba(255, 255, 255, 0.03);
+  --surface-raised: #1d1d1c;
+  --surface-badge: rgba(255, 255, 255, 0.08);
+  --surface-placeholder: rgba(255, 255, 255, 0.06);
+
+  --border: rgba(255, 255, 255, 0.09);
+  --border-input: rgba(255, 255, 255, 0.12);
+  --border-strong: rgba(255, 255, 255, 0.16);
+
+  --badge-foreground: rgba(255, 255, 255, 0.45);
+
+  --selection-background: #3a3a37;
+  --selection-foreground: #f2f1ed;
+
+  --divider: rgba(255, 255, 255, 0.09);
+
+  --scrollbar-thumb: rgba(255, 255, 255, 0.18);
+  --scrollbar-thumb-hover: rgba(255, 255, 255, 0.3);
 }
 
 @theme inline {
@@ -92,7 +152,7 @@
 @supports not selector(::-webkit-scrollbar) {
   * {
     scrollbar-width: thin;
-    scrollbar-color: rgba(0, 0, 0, 0.15) transparent;
+    scrollbar-color: var(--scrollbar-thumb) transparent;
   }
 }
 
@@ -108,11 +168,11 @@
 ::-webkit-scrollbar-thumb {
   border-radius: 300px;
   border: 4px solid transparent;
-  background: rgba(0, 0, 0, 0.15) padding-box;
+  background: var(--scrollbar-thumb) padding-box;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 0, 0, 0.25) padding-box;
+  background: var(--scrollbar-thumb-hover) padding-box;
 }
 
 ::selection {
@@ -142,4 +202,9 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+[data-mimo],
+.mimo {
+  color: #000;
 }

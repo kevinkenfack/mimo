@@ -6,6 +6,7 @@ import { useCallback, useRef, useState } from 'react';
 import { GRADIENTS, HERO_NAMES, MOODS, VARIETY_NAMES } from '../lib/constants';
 import { IconCheck, IconCopy, IconGitHub, IconShuffle } from '../lib/icons';
 import { CodeBlock, ScrollFade, Section } from './shared';
+import { ThemeToggle } from './theme-toggle';
 
 const PACKAGE_MANAGERS = [
   { value: 'bun', command: 'bun install' },
@@ -82,14 +83,18 @@ export function HeroSection() {
         <span className='inline-flex items-center gap-1.5 text-[0.9375rem] font-medium tracking-[-0.01em] text-heading'>
           Mimo
         </span>
-        <Link
-          href='https://github.com/kevinkenfack/mimo'
-          target='_blank'
-          rel='noopener noreferrer'
-          title='GitHub'
-        >
-          <IconGitHub className='h-4.5 w-4.5 text-foreground-quaternary transition-colors hover:text-foreground-tertiary' />
-        </Link>
+        <div className='flex items-center gap-1'>
+          <ThemeToggle />
+          <Link
+            href='https://github.com/kevinkenfack/mimo'
+            target='_blank'
+            rel='noopener noreferrer'
+            title='GitHub'
+            className='inline-flex h-7 w-7 items-center justify-center rounded-md p-1 text-foreground-quaternary transition-colors hover:text-foreground-tertiary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-foreground-quaternary'
+          >
+            <IconGitHub className='h-4.5 w-4.5' />
+          </Link>
+        </div>
       </div>
 
       <InstallBanner />
