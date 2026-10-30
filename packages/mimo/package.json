@@ -4,7 +4,7 @@
   "type": "module",
   "description": "Animated avatar system for developers. Generate unique, fully animated characters from any string.",
   "author": "Kevin Kenfack <kevinkenfackjoel@gmail.com>",
-  "license": "AGPL-3.0",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/kevinkenfack/mimo.git",
