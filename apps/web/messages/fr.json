@@ -4,6 +4,91 @@
     "description": "Générez des avatars uniques et entièrement animés à partir de n’importe quelle chaîne. 145 152 combinaisons avec clignements, mouvements flottants et regards mobiles — le tout déterministe et open source.",
     "openGraphDescription": "Générez des avatars uniques et entièrement animés à partir de n’importe quelle chaîne. Déterministes, personnalisables et open source."
   },
+  "components": {
+    "metadata": {
+      "title": "Mimo dans vos interfaces — Exemples React d’avatars",
+      "description": "Exemples React prêts à copier pour utiliser les avatars Mimo dans un chat, une équipe, un classement, des commentaires et une liste de membres."
+    },
+    "navLabel": "Navigation principale",
+    "hero": {
+      "eyebrow": "Mimo dans vos interfaces",
+      "title": "Des avatars à leur place.",
+      "description": "Des exemples concrets pour intégrer Mimo dans un chat, une page d’équipe, un classement ou un fil de commentaires.",
+      "exploreCta": "Voir les exemples",
+      "previewLabel": "Un petit composant, partout"
+    },
+    "examples": {
+      "eyebrow": "Exemples prêts à copier",
+      "title": "Mimo dans son contexte",
+      "description": "Chaque exemple associe un aperçu interactif à un extrait React à afficher, copier et adapter à votre produit.",
+      "controls": {
+        "viewCode": "Voir le code",
+        "hideCode": "Masquer le code",
+        "copyCode": "Copier le code",
+        "copied": "Copié",
+        "copyError": "Échec de la copie",
+        "copySuccess": "L’extrait React a été copié dans le presse-papiers."
+      },
+      "chat": {
+        "title": "Chat de groupe",
+        "description": "Associez chaque message à un visage reconnaissable, sans téléverser d’image de profil.",
+        "heading": "Chat de groupe",
+        "channel": "#mimo-launch",
+        "firstMessage": "Je viens de publier mimo-id 1.0",
+        "samuel": "Attends, mon avatar cligne des yeux ?!",
+        "sarah": "Pas d’image à envoyer. Juste un nom. C’est fou.",
+        "chloe": "Le mien a l’air coquin.",
+        "secondMessage": "Même nom → même visage, partout. Pour toujours.",
+        "typing": "Hugo écrit…"
+      },
+      "team": {
+        "title": "Annuaire de l’équipe",
+        "description": "Mettez en avant le responsable de l’équipe et donnez un avatar cohérent à chaque membre.",
+        "heading": "Équipe",
+        "channel": "team.mimo",
+        "leadRole": "Fondateur & développeur principal",
+        "roles": {
+          "design": "Design",
+          "frontend": "Frontend",
+          "backend": "Backend",
+          "product": "Produit",
+          "devRel": "DevRel",
+          "qa": "QA"
+        }
+      },
+      "leaderboard": {
+        "title": "Classement",
+        "description": "Alignez les noms et les scores pour rendre un classement facile à parcourir.",
+        "heading": "Leaderboard",
+        "season": "saison 01",
+        "points": "pts"
+      },
+      "comments": {
+        "title": "Commentaires",
+        "description": "Reliez chaque réponse à un avatar stable, sans demander de photo de profil.",
+        "heading": "Commentaires",
+        "count": "blog · 4 réponses",
+        "time": "il y a 2 h",
+        "like": "J’aime",
+        "manon": "Enfin des avatars par défaut qui ont de la personnalité !",
+        "james": "J’ai remplacé Gravatar en cinq minutes. Les utilisateurs adorent.",
+        "fotso": "Fier de voir un package comme ça venir du Cameroun.",
+        "ines": "Le mode sleepy est trop mignon."
+      },
+      "stack": {
+        "title": "Groupe d’avatars",
+        "description": "Affichez la présence d’une équipe près d’un projet, d’une tâche ou d’un document partagé.",
+        "heading": "Contributeurs du projet",
+        "caption": "Sept personnes travaillent sur ce projet."
+      }
+    },
+    "next": {
+      "eyebrow": "Prêt à créer ?",
+      "title": "Créez un Mimo à votre image.",
+      "description": "Ouvrez le Playground pour changer le nom, l’expression, les couleurs, la forme et les animations, puis exportez votre avatar.",
+      "cta": "Ouvrir le Playground"
+    }
+  },
   "playground": {
     "metadata": {
       "title": "Playground Mimo — Créez votre avatar",
@@ -108,7 +193,10 @@
   },
   "common": {
     "copyToClipboard": "Copier dans le presse-papiers",
-    "packageManager": "Gestionnaire de paquets"
+    "packageManager": "Gestionnaire de paquets",
+    "home": "Accueil",
+    "explore": "Explorer",
+    "playground": "Playground"
   },
   "hero": {
     "taglineFirst": "De petits esprits nés de chaînes de caractères.",
@@ -246,6 +334,11 @@
     "home": "Retour à l’accueil"
   },
   "footer": {
-    "description": "Des avatars déterministes, animés et open source."
+    "madeBy": "Créé par",
+    "description": "Les aperçus Mimo sont générés dans votre navigateur. Aucun compte n’est nécessaire.",
+    "version": "v{version}",
+    "copyright": "© {year} Kevin Kenfack",
+    "twitter": "X (Twitter)",
+    "github": "GitHub"
   }
 }

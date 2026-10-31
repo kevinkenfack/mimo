@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import { parseAsArrayOf, parseAsString, parseAsStringLiteral, useQueryState } from 'nuqs';
 import { useCallback, useRef, useState } from 'react';
+import { SiteFooter } from '@/components/site-footer';
 import { Link as LocaleLink } from '@/i18n/navigation';
 import { GRADIENTS, HERO_NAMES, MOODS, VARIETY_NAMES } from '../lib/constants';
 import { IconCheck, IconCopy, IconGitHub, IconShuffle } from '../lib/icons';
@@ -84,6 +85,7 @@ function InstallBanner() {
 export function HeroSection() {
   const t = useTranslations('hero');
   const playgroundT = useTranslations('playground');
+  const common = useTranslations('common');
 
   return (
     <header className='relative flex flex-col gap-2'>
@@ -92,6 +94,12 @@ export function HeroSection() {
           Mimo
         </span>
         <div className='flex items-center gap-1'>
+          <LocaleLink
+            href='/components'
+            className='rounded-md px-2 py-1 text-xs text-foreground-secondary transition-colors hover:text-heading focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-foreground-quaternary'
+          >
+            {common('explore')}
+          </LocaleLink>
           <LanguageToggle />
           <ThemeToggle />
           <Link
@@ -923,22 +931,5 @@ export function ReferenceSection() {
 }
 
 export function PageFooter() {
-  const t = useTranslations('footer');
-
-  return (
-    <footer className='mx-auto flex max-w-152 items-center justify-between border-t border-border px-6 py-4 text-xs text-foreground-tertiary'>
-      <span>
-        <span className='hidden sm:inline'>Mimo — </span>
-        {t('description')}
-      </span>
-      <Link
-        href='https://github.com/kevinkenfack/mimo'
-        target='_blank'
-        rel='noopener noreferrer'
-        title='GitHub'
-      >
-        <IconGitHub className='h-4 w-4 text-foreground-quaternary transition-colors hover:text-foreground-tertiary' />
-      </Link>
-    </footer>
-  );
+  return <SiteFooter narrow />;
 }
