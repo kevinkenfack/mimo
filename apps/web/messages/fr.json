@@ -6,100 +6,88 @@
   },
   "components": {
     "metadata": {
-      "title": "Anatomie de Mimo — Explorer les traits d’avatar",
-      "description": "Explorez les styles d’yeux, de sourcils, de bouches, de joues et d’accessoires qui donnent à chaque avatar Mimo sa personnalité."
+      "title": "Mimo dans vos interfaces — Exemples React d’avatars",
+      "description": "Exemples React prêts à copier pour utiliser les avatars Mimo dans un chat, une équipe, un classement, des commentaires et une liste de membres."
     },
     "navLabel": "Navigation principale",
     "hero": {
-      "eyebrow": "L’anatomie de Mimo",
-      "title": "Un visage, des milliers de personnalités.",
-      "description": "Yeux, sourcils, bouches, joues et accessoires se combinent pour donner à chaque Mimo son caractère. Explorez les styles, puis essayez-les dans le Playground.",
-      "exploreCta": "Explorer les traits",
-      "previewLabel": "Quelques Mimo, toujours en mouvement"
+      "eyebrow": "Mimo dans vos interfaces",
+      "title": "Des avatars à leur place.",
+      "description": "Des exemples concrets pour intégrer Mimo dans un chat, une page d’équipe, un classement ou un fil de commentaires.",
+      "exploreCta": "Voir les exemples",
+      "previewLabel": "Un petit composant, partout"
     },
-    "stats": {
-      "combinations": "combinaisons",
-      "combinationsValue": "145 152"
-    },
-    "gallery": {
-      "eyebrow": "Catalogue vivant",
-      "title": "Explorez chaque détail",
-      "description": "Choisissez une catégorie pour parcourir les variantes. Chaque aperçu montre un vrai visage Mimo construit autour du trait sélectionné.",
-      "filtersLabel": "Filtrer les traits par catégorie",
-      "variantsCount": "{count} variantes"
-    },
-    "groups": {
-      "eyes": {
-        "label": "Yeux",
-        "description": "Six formes pour faire varier le regard, du plus doux au plus expressif."
+    "examples": {
+      "eyebrow": "Exemples prêts à copier",
+      "title": "Mimo dans son contexte",
+      "description": "Chaque exemple associe un aperçu interactif à un extrait React à afficher, copier et adapter à votre produit.",
+      "controls": {
+        "viewCode": "Voir le code",
+        "hideCode": "Masquer le code",
+        "copyCode": "Copier le code",
+        "copied": "Copié",
+        "copyError": "Échec de la copie",
+        "copySuccess": "L’extrait React a été copié dans le presse-papiers."
       },
-      "mouths": {
-        "label": "Bouches",
-        "description": "Sept expressions donnent le ton : sourire, surprise, malice ou calme."
+      "chat": {
+        "title": "Chat de groupe",
+        "description": "Associez chaque message à un visage reconnaissable, sans téléverser d’image de profil.",
+        "heading": "Chat de groupe",
+        "channel": "#mimo-launch",
+        "firstMessage": "Je viens de publier mimo-id 1.0",
+        "samuel": "Attends, mon avatar cligne des yeux ?!",
+        "sarah": "Pas d’image à envoyer. Juste un nom. C’est fou.",
+        "chloe": "Le mien a l’air coquin.",
+        "secondMessage": "Même nom → même visage, partout. Pour toujours.",
+        "typing": "Hugo écrit…"
       },
-      "eyebrows": {
-        "label": "Sourcils",
-        "description": "Quatre styles ajoutent une nuance de caractère au visage."
+      "team": {
+        "title": "Annuaire de l’équipe",
+        "description": "Mettez en avant le responsable de l’équipe et donnez un avatar cohérent à chaque membre.",
+        "heading": "Équipe",
+        "channel": "team.mimo",
+        "leadRole": "Fondateur & développeur principal",
+        "roles": {
+          "design": "Design",
+          "frontend": "Frontend",
+          "backend": "Backend",
+          "product": "Produit",
+          "devRel": "DevRel",
+          "qa": "QA"
+        }
       },
-      "cheeks": {
-        "label": "Joues",
-        "description": "Un soupçon de rose — ou pas — change toute l’expression."
+      "leaderboard": {
+        "title": "Classement",
+        "description": "Alignez les noms et les scores pour rendre un classement facile à parcourir.",
+        "heading": "Leaderboard",
+        "season": "saison 01",
+        "points": "pts"
       },
-      "accessories": {
-        "label": "Accessoires",
-        "description": "Des lunettes discrètes aux solaires, choisissez la touche finale."
+      "comments": {
+        "title": "Commentaires",
+        "description": "Reliez chaque réponse à un avatar stable, sans demander de photo de profil.",
+        "heading": "Commentaires",
+        "count": "blog · 4 réponses",
+        "time": "il y a 2 h",
+        "like": "J’aime",
+        "manon": "Enfin des avatars par défaut qui ont de la personnalité !",
+        "james": "J’ai remplacé Gravatar en cinq minutes. Les utilisateurs adorent.",
+        "fotso": "Fier de voir un package comme ça venir du Cameroun.",
+        "ines": "Le mode sleepy est trop mignon."
+      },
+      "stack": {
+        "title": "Groupe d’avatars",
+        "description": "Affichez la présence d’une équipe près d’un projet, d’une tâche ou d’un document partagé.",
+        "heading": "Contributeurs du projet",
+        "caption": "Sept personnes travaillent sur ce projet."
       }
-    },
-    "items": {
-      "eyes": {
-        "round": "Ronds",
-        "cross": "Croix",
-        "line": "Traits",
-        "curved": "Courbés",
-        "wink": "Clin d’œil",
-        "heart": "Cœur"
-      },
-      "mouths": {
-        "smile": "Sourire",
-        "grin": "Grand sourire",
-        "o": "Bouche en O",
-        "cat": "Chat",
-        "tongue": "Langue tirée",
-        "smirk": "Sourire en coin",
-        "flat": "Neutre"
-      },
-      "eyebrows": {
-        "arched": "Arqués",
-        "flat": "Plats",
-        "raised": "Relevés",
-        "none": "Aucun"
-      },
-      "cheeks": {
-        "blush": "Joues rosies",
-        "none": "Sans blush"
-      },
-      "accessories": {
-        "none": "Aucun",
-        "glasses": "Lunettes",
-        "sunglasses": "Lunettes de soleil"
-      }
-    },
-    "preview": {
-      "eyebrow": "Trait sélectionné",
-      "description": "Style sélectionné : {feature} — catégorie : {group}. Avec ce même nom, le visage restera identique.",
-      "copyCode": "Copier le code",
-      "copied": "Code copié",
-      "copySuccess": "Extrait React copié dans le presse-papiers.",
-      "copyError": "Impossible d’accéder au presse-papiers.",
-      "tryInPlayground": "Essayer dans le Playground"
     },
     "next": {
-      "eyebrow": "À vous de jouer",
-      "title": "Les traits ne sont qu’un début.",
-      "description": "Dans le Playground, changez le nom, l’expression, la palette, la forme et l’animation, puis exportez votre avatar.",
-      "cta": "Créer mon Mimo"
-    },
-    "footer": "Des avatars déterministes, animés et open source."
+      "eyebrow": "Prêt à créer ?",
+      "title": "Créez un Mimo à votre image.",
+      "description": "Ouvrez le Playground pour changer le nom, l’expression, les couleurs, la forme et les animations, puis exportez votre avatar.",
+      "cta": "Ouvrir le Playground"
+    }
   },
   "playground": {
     "metadata": {

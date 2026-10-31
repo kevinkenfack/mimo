@@ -2,15 +2,11 @@
 
 import { Mimo } from 'mimo-id/react';
 import { useTranslations } from 'next-intl';
-import { useState } from 'react';
 import { LanguageToggle } from '@/components/language-toggle';
 import { SiteFooter } from '@/components/site-footer';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { Link as LocaleLink } from '@/i18n/navigation';
-import { COMPONENT_GROUPS, type ComponentFeature, type ComponentGroupId } from '@/lib/component-catalog';
-import { HERO_NAMES } from '@/lib/constants';
-import { ComponentFeatureGallery } from './component-feature-gallery';
-import { ComponentFeaturePreview } from './component-feature-preview';
+import { ComponentUsageShowcase } from './component-usage-showcase';
 
 const NAV_LINK_CLASS =
   'rounded-md px-2 py-1 text-xs text-foreground-secondary transition-colors hover:text-heading focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-foreground-quaternary';
@@ -18,25 +14,28 @@ const NAV_LINK_CLASS =
 export function ComponentExplorer() {
   const t = useTranslations('components');
   const common = useTranslations('common');
-  const [activeGroupId, setActiveGroupId] = useState<ComponentGroupId>('eyes');
-  const [selectedFeature, setSelectedFeature] = useState<ComponentFeature>(COMPONENT_GROUPS[0].items[0]);
-
-  function selectGroup(groupId: ComponentGroupId) {
-    const group = COMPONENT_GROUPS.find((item) => item.id === groupId);
-    if (!group) return;
-
-    setActiveGroupId(groupId);
-    setSelectedFeature(group.items[0]);
-  }
+  const previewTags = [
+    t('examples.chat.title'),
+    t('examples.team.title'),
+    t('examples.leaderboard.title'),
+    t('examples.comments.title'),
+    t('examples.stack.title'),
+  ];
 
   return (
     <main className='flex min-h-svh flex-col bg-background'>
       <div className='mx-auto w-full max-w-6xl flex-1 px-3 py-5 sm:px-6 sm:py-8'>
-        <header className='flex items-center justify-between border-b border-divider pb-4'>
-          <LocaleLink href='/' className='text-[0.9375rem] font-medium tracking-[-0.01em] text-heading'>
+        <header className='flex min-w-0 items-center justify-between gap-2 border-b border-divider pb-4'>
+          <LocaleLink
+            href='/'
+            className='shrink-0 text-[0.9375rem] font-medium tracking-[-0.01em] text-heading'
+          >
             Mimo
           </LocaleLink>
-          <nav className='flex items-center gap-0.5 sm:gap-1' aria-label={t('navLabel')}>
+          <nav
+            className='flex min-w-0 flex-wrap items-center justify-end gap-0.5 sm:gap-1'
+            aria-label={t('navLabel')}
+          >
             <LocaleLink href='/' className={NAV_LINK_CLASS}>
               {common('home')}
             </LocaleLink>
@@ -51,12 +50,12 @@ export function ComponentExplorer() {
           </nav>
         </header>
 
-        <section className='grid items-center gap-7 border-b border-divider py-9 sm:py-12 md:grid-cols-[minmax(0,1.15fr)_minmax(16rem,0.85fr)] md:gap-10'>
-          <div>
+        <section className='grid min-w-0 items-center gap-7 border-b border-divider py-8 sm:py-12 md:grid-cols-[minmax(0,1.1fr)_minmax(16rem,0.9fr)] md:gap-10'>
+          <div className='min-w-0'>
             <p className='text-[0.6875rem] font-medium uppercase tracking-[0.14em] text-foreground-tertiary'>
               {t('hero.eyebrow')}
             </p>
-            <h1 className='[font-family:var(--font-serif),Georgia,serif] mt-3 max-w-2xl text-[2.625rem] leading-[1.04] font-normal tracking-[-0.04em] text-heading sm:text-6xl'>
+            <h1 className='mt-3 max-w-2xl break-words text-4xl leading-[1.04] font-semibold tracking-[-0.045em] text-heading sm:text-6xl'>
               {t('hero.title')}
             </h1>
             <p className='mt-4 max-w-xl text-sm leading-relaxed text-foreground-secondary sm:text-base'>
@@ -64,7 +63,7 @@ export function ComponentExplorer() {
             </p>
             <div className='mt-5 flex flex-wrap gap-2'>
               <a
-                href='#feature-browser'
+                href='#usage-examples'
                 className='inline-flex min-h-10 items-center gap-2 rounded-full bg-foreground px-4 text-xs font-medium text-background transition-opacity hover:opacity-85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50'
               >
                 {t('hero.exploreCta')}
@@ -79,85 +78,54 @@ export function ComponentExplorer() {
             </div>
           </div>
 
-          <div className='rounded-3xl border border-border bg-surface-raised p-4 sm:p-6'>
-            <div className='flex items-center justify-between gap-3'>
+          <div className='min-w-0 rounded-3xl border border-border bg-surface-raised p-4 sm:p-6'>
+            <div className='flex min-w-0 flex-wrap items-center justify-between gap-2'>
               <p className='text-xs font-medium text-heading-secondary'>{t('hero.previewLabel')}</p>
               <span className='rounded-full bg-surface-badge px-2.5 py-1 font-mono text-[0.6875rem] text-foreground-secondary'>
-                {t('stats.combinationsValue')}
+                mimo-id/react
               </span>
             </div>
-            <div className='mt-6 flex min-h-32 flex-wrap items-end justify-center gap-2.5 sm:min-h-40 sm:gap-4'>
-              {HERO_NAMES.slice(0, 4).map((name, index) => (
+            <div className='mt-5 flex min-w-0 items-center justify-center gap-2 sm:gap-4'>
+              {['Kevin', 'Manon', 'Sarah', 'Hugo'].map((name, index) => (
                 <Mimo
                   key={name}
                   aria-hidden={true}
-                  data-explorer-avatar='true'
                   name={name}
-                  size={index === 0 || index === 3 ? 84 : 68}
+                  size={index === 0 ? 66 : 54}
+                  shape={index === 0 ? 'squircle' : 'circle'}
                   detailLevel='full'
                   depth='subtle'
                   animations={index % 2 === 0 ? ['blink', 'float'] : ['sway']}
                   interactive={false}
-                  className={index % 2 === 0 ? '-translate-y-1' : 'translate-y-2'}
                 />
+              ))}
+            </div>
+            <div className='mt-4 rounded-xl border border-border bg-background px-3 py-2 text-center'>
+              <code className='break-words text-xs text-foreground-secondary'>
+                {'<Mimo name="Kevin" size={40} />'}
+              </code>
+            </div>
+            <div className='mt-4 flex min-w-0 flex-wrap justify-center gap-2'>
+              {previewTags.map((tag) => (
+                <span
+                  key={tag}
+                  className='max-w-full rounded-full border border-border px-2.5 py-1 text-[0.6875rem] text-foreground-tertiary'
+                >
+                  {tag}
+                </span>
               ))}
             </div>
           </div>
         </section>
 
-        <dl className='mt-5 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-6'>
-          {COMPONENT_GROUPS.map((group) => (
-            <div key={group.id} className='rounded-xl border border-border bg-surface p-3'>
-              <dt className='text-[0.6875rem] text-foreground-tertiary'>
-                {t(`groups.${group.id}.label` as never)}
-              </dt>
-              <dd className='mt-1 text-lg font-medium tracking-[-0.03em] text-heading'>
-                {group.items.length}
-              </dd>
-            </div>
-          ))}
-          <div className='rounded-xl border border-border bg-surface p-3'>
-            <dt className='text-[0.6875rem] text-foreground-tertiary'>{t('stats.combinations')}</dt>
-            <dd className='mt-1 text-lg font-medium tracking-[-0.03em] text-heading'>
-              {t('stats.combinationsValue')}
-            </dd>
-          </div>
-        </dl>
+        <ComponentUsageShowcase />
 
-        <section id='feature-browser' className='scroll-mt-6 pt-10 sm:pt-12'>
-          <div className='mb-5 max-w-2xl'>
-            <p className='text-[0.6875rem] font-medium uppercase tracking-[0.14em] text-foreground-tertiary'>
-              {t('gallery.eyebrow')}
-            </p>
-            <h2 className='[font-family:var(--font-serif),Georgia,serif] mt-2 text-3xl leading-tight font-normal tracking-[-0.03em] text-heading sm:text-4xl'>
-              {t('gallery.title')}
-            </h2>
-            <p className='mt-2 text-sm leading-relaxed text-foreground-secondary'>
-              {t('gallery.description')}
-            </p>
-          </div>
-
-          <div className='grid items-start gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(18rem,0.72fr)] lg:gap-6'>
-            <div className='order-2 min-w-0 lg:order-1'>
-              <ComponentFeatureGallery
-                activeGroupId={activeGroupId}
-                selectedFeature={selectedFeature}
-                onSelectGroup={selectGroup}
-                onSelectFeature={setSelectedFeature}
-              />
-            </div>
-            <div className='order-1 lg:order-2'>
-              <ComponentFeaturePreview groupId={activeGroupId} feature={selectedFeature} />
-            </div>
-          </div>
-        </section>
-
-        <section className='mt-10 grid gap-4 rounded-3xl border border-border bg-surface p-5 sm:mt-12 sm:p-8 md:grid-cols-[minmax(0,1fr)_auto] md:items-center'>
-          <div>
+        <section className='mt-9 grid min-w-0 gap-4 rounded-3xl border border-border bg-surface p-5 sm:mt-12 sm:p-8 md:grid-cols-[minmax(0,1fr)_auto] md:items-center'>
+          <div className='min-w-0'>
             <p className='text-[0.6875rem] font-medium uppercase tracking-[0.14em] text-foreground-tertiary'>
               {t('next.eyebrow')}
             </p>
-            <h2 className='[font-family:var(--font-serif),Georgia,serif] mt-2 text-2xl font-normal tracking-[-0.03em] text-heading sm:text-3xl'>
+            <h2 className='mt-2 break-words text-2xl font-semibold tracking-[-0.03em] text-heading sm:text-3xl'>
               {t('next.title')}
             </h2>
             <p className='mt-2 max-w-2xl text-sm leading-relaxed text-foreground-secondary'>
