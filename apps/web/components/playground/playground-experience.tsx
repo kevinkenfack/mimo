@@ -28,7 +28,6 @@ function pickRandom<Value>(values: readonly Value[]): Value {
 
 export function PlaygroundExperience() {
   const t = useTranslations('playground');
-  const common = useTranslations('common');
   const [querySettings, setQuerySettings] = useQueryStates(
     {
       name: parseAsString.withDefault(DEFAULT_PLAYGROUND_SETTINGS.name),
@@ -108,12 +107,6 @@ export function PlaygroundExperience() {
             className='rounded-md px-2 py-1 text-xs text-foreground-secondary transition-colors hover:text-heading focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-foreground-quaternary'
           >
             {t('home')}
-          </LocaleLink>
-          <LocaleLink
-            href='/components'
-            className='rounded-md px-2 py-1 text-xs text-foreground-secondary transition-colors hover:text-heading focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-foreground-quaternary'
-          >
-            {common('explore')}
           </LocaleLink>
           <LanguageToggle />
           <ThemeToggle />

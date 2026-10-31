@@ -4,91 +4,6 @@
     "description": "Generate unique, fully animated avatars from any string. 145,152 combinations with blinking, floating, and glancing animations — all deterministic and open-source.",
     "openGraphDescription": "Generate unique, fully animated avatars from any string. Deterministic, customizable, and open-source."
   },
-  "components": {
-    "metadata": {
-      "title": "Mimo UI patterns — Avatar components for React",
-      "description": "Copy-ready React examples for Mimo avatars in chats, team directories, leaderboards, comments, and member lists."
-    },
-    "navLabel": "Primary navigation",
-    "hero": {
-      "eyebrow": "Mimo in product UI",
-      "title": "Avatars that feel at home.",
-      "description": "Real interface patterns you can use in a chat, team page, leaderboard, or comment feed.",
-      "exploreCta": "Explore examples",
-      "previewLabel": "Built from one small component"
-    },
-    "examples": {
-      "eyebrow": "Copy-ready patterns",
-      "title": "See Mimo in context",
-      "description": "Each example pairs a live preview with React code you can reveal, copy, and adapt to your product.",
-      "controls": {
-        "viewCode": "View code",
-        "hideCode": "Hide code",
-        "copyCode": "Copy code",
-        "copied": "Copied",
-        "copyError": "Copy failed",
-        "copySuccess": "React snippet copied to the clipboard."
-      },
-      "chat": {
-        "title": "Group chat",
-        "description": "Give every message a recognizable face without uploading profile images.",
-        "heading": "Group chat",
-        "channel": "#mimo-launch",
-        "firstMessage": "I just shipped mimo-id 1.0",
-        "samuel": "Wait, does my avatar blink?",
-        "sarah": "No image upload. Just a name. That’s wild.",
-        "chloe": "Mine looks mischievous.",
-        "secondMessage": "Same name → same face, everywhere. Always.",
-        "typing": "Hugo is typing…"
-      },
-      "team": {
-        "title": "Team directory",
-        "description": "Feature a team lead, then give every member a consistent Mimo identity.",
-        "heading": "Team",
-        "channel": "team.mimo",
-        "leadRole": "Founder & Lead Dev",
-        "roles": {
-          "design": "Design",
-          "frontend": "Frontend",
-          "backend": "Backend",
-          "product": "Product",
-          "devRel": "DevRel",
-          "qa": "QA"
-        }
-      },
-      "leaderboard": {
-        "title": "Leaderboard",
-        "description": "Keep names and scores easy to scan in a responsive ranking.",
-        "heading": "Leaderboard",
-        "season": "season 01",
-        "points": "pts"
-      },
-      "comments": {
-        "title": "Comments",
-        "description": "Connect each reply to a stable avatar, without asking people to upload a photo.",
-        "heading": "Comments",
-        "count": "blog · 4 replies",
-        "time": "2h ago",
-        "like": "Like",
-        "manon": "Finally, default avatars with a real personality!",
-        "james": "Swapped Gravatar for this in five minutes. Users love it.",
-        "fotso": "Proud to see a package like this come from Cameroon.",
-        "ines": "The sleepy mode is so cute."
-      },
-      "stack": {
-        "title": "Avatar group",
-        "description": "Show a compact team presence beside projects, tasks, or shared documents.",
-        "heading": "Project contributors",
-        "caption": "Seven people are working on this project."
-      }
-    },
-    "next": {
-      "eyebrow": "Ready to build?",
-      "title": "Make one your own.",
-      "description": "Open the playground to change the name, expression, colors, shape, and motion, then export your avatar.",
-      "cta": "Open the playground"
-    }
-  },
   "playground": {
     "metadata": {
       "title": "Mimo Playground — Create your avatar",
@@ -195,7 +110,6 @@
     "copyToClipboard": "Copy to clipboard",
     "packageManager": "Package manager",
     "home": "Home",
-    "explore": "Explore",
     "playground": "Playground"
   },
   "hero": {
