@@ -1,7 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { parseAsInteger, parseAsString, parseAsStringLiteral, useQueryStates } from 'nuqs';
+import { parseAsBoolean, parseAsInteger, parseAsString, parseAsStringLiteral, useQueryStates } from 'nuqs';
 import { LanguageToggle } from '@/components/language-toggle';
 import { SiteFooter } from '@/components/site-footer';
 import { ThemeToggle } from '@/components/theme-toggle';
@@ -48,6 +48,7 @@ export function PlaygroundExperience() {
       exportFormat: parseAsStringLiteral(PLAYGROUND_EXPORT_FORMATS).withDefault(
         DEFAULT_PLAYGROUND_SETTINGS.exportFormat
       ),
+      interactive: parseAsBoolean.withDefault(DEFAULT_PLAYGROUND_SETTINGS.interactive),
     },
     { history: 'replace', clearOnDefault: true }
   );
@@ -118,7 +119,7 @@ export function PlaygroundExperience() {
           <PlaygroundPreview settings={settings} />
         </div>
 
-        <div className='h-full min-h-0'>
+        <div className='min-h-0 lg:h-full'>
           <PlaygroundControls
             settings={settings}
             onChange={updateSetting}

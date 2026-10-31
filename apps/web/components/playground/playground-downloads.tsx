@@ -1,6 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
+import { useRef } from 'react';
 import { IconChevronDown } from '@/lib/icons';
 import {
   type PLAYGROUND_EXPORT_FORMATS,
@@ -8,7 +9,6 @@ import {
   type PlaygroundSettings,
   playgroundExportHref,
 } from '@/lib/playground';
-import { PlaygroundLinkButton } from './playground-button';
 import { PlaygroundCard } from './playground-card';
 
 interface PlaygroundDownloadsProps {
@@ -16,11 +16,25 @@ interface PlaygroundDownloadsProps {
   onChange: <Key extends keyof PlaygroundSettings>(key: Key, value: PlaygroundSettings[Key]) => void;
 }
 
+const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'] as const;
+
+function makeDateTag() {
+  const now = new Date();
+  return `${now.getDate()}${MONTHS[now.getMonth()]}`;
+}
+
+function triggerDownload(href: string, filename: string) {
+  const a = document.createElement('a');
+  a.href = href;
+  a.download = filename;
+  a.click();
+}
+
 export function PlaygroundDownloads({ settings, onChange }: PlaygroundDownloadsProps) {
   const t = useTranslations('playground.export');
+  const counter = useRef(0);
 
-  const downloadFilename = `mimo-${(settings.name.trim() || 'avatar').toLowerCase()}.${settings.exportFormat}`;
-  const zipFilename = `mimo-${(settings.name.trim() || 'avatar').toLowerCase()}.zip`;
+  const dateTag = makeDateTag();
 
   const scaleOptions = [
     { value: 256, label: '1x' },
@@ -32,6 +46,22 @@ export function PlaygroundDownloads({ settings, onChange }: PlaygroundDownloadsP
     { value: 'png', label: 'PNG' },
     { value: 'svg', label: 'SVG' },
   ];
+
+  function handleDownload() {
+    counter.current += 1;
+    const seq = String(counter.current).padStart(3, '0');
+    const ts = `${dateTag}_${seq}`;
+    const filename = `mimo_${ts}.${settings.exportFormat}`;
+    triggerDownload(playgroundExportHref(settings, settings.exportFormat, ts), filename);
+  }
+
+  function handleDownloadAll() {
+    counter.current += 1;
+    const seq = String(counter.current).padStart(3, '0');
+    const ts = `${dateTag}_${seq}`;
+    const filename = `mimo_${ts}.zip`;
+    triggerDownload(playgroundExportHref(settings, 'zip', ts), filename);
+  }
 
   return (
     <PlaygroundCard
@@ -48,10 +78,14 @@ export function PlaygroundDownloads({ settings, onChange }: PlaygroundDownloadsP
               onChange('exportSize', val);
             }}
             aria-label={t('scale')}
-            className='h-10 w-full appearance-none rounded-xl border border-border/80 bg-surface px-3 pr-8 text-xs font-medium text-heading transition-colors hover:bg-surface-elevated focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 cursor-pointer'
+            className='h-10 w-full appearance-none rounded-xl border border-border/80 bg-surface px-3 pr-8 text-xs font-medium text-heading transition-colors hover:bg-surface-elevated focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 cursor-pointer scheme-light dark:scheme-dark'
           >
             {scaleOptions.map((opt) => (
-              <option key={opt.value} value={opt.value}>
+              <option
+                key={opt.value}
+                value={opt.value}
+                className='bg-white text-zinc-900 dark:bg-[#1d1d1c] dark:text-[#f2f1ed]'
+              >
                 {opt.label}
               </option>
             ))}
@@ -71,10 +105,14 @@ export function PlaygroundDownloads({ settings, onChange }: PlaygroundDownloadsP
               onChange('exportFormat', val);
             }}
             aria-label={t('format')}
-            className='h-10 w-full appearance-none rounded-xl border border-border/80 bg-surface px-3 pr-8 text-xs font-semibold uppercase text-heading transition-colors hover:bg-surface-elevated focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 cursor-pointer'
+            className='h-10 w-full appearance-none rounded-xl border border-border/80 bg-surface px-3 pr-8 text-xs font-semibold uppercase text-heading transition-colors hover:bg-surface-elevated focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 cursor-pointer scheme-light dark:scheme-dark'
           >
             {formatOptions.map((opt) => (
-              <option key={opt.value} value={opt.value}>
+              <option
+                key={opt.value}
+                value={opt.value}
+                className='bg-white text-zinc-900 dark:bg-[#1d1d1c] dark:text-[#f2f1ed]'
+              >
                 {opt.label}
               </option>
             ))}
@@ -87,22 +125,23 @@ export function PlaygroundDownloads({ settings, onChange }: PlaygroundDownloadsP
       </div>
 
       <div className='mt-2.5 space-y-1.5'>
-        <PlaygroundLinkButton
-          href={playgroundExportHref(settings, settings.exportFormat)}
-          download={downloadFilename}
-          className='min-h-10 w-full justify-center rounded-xl bg-heading text-background font-semibold text-xs transition-opacity hover:opacity-90 shadow-xs'
+        <button
+          type='button'
+          id='playground-download-btn'
+          onClick={handleDownload}
+          className='flex min-h-10 w-full items-center justify-center rounded-xl bg-heading px-4 text-xs font-semibold text-background shadow-xs transition-opacity hover:opacity-90'
         >
           {t('download', { format: `.${settings.exportFormat.toUpperCase()}` })}
-        </PlaygroundLinkButton>
+        </button>
 
-        <PlaygroundLinkButton
-          href={playgroundExportHref(settings, 'zip')}
-          download={zipFilename}
-          variant='ghost'
-          className='min-h-9 w-full justify-center rounded-xl text-xs text-foreground-secondary hover:text-heading transition-colors'
+        <button
+          type='button'
+          id='playground-download-all-btn'
+          onClick={handleDownloadAll}
+          className='flex min-h-9 w-full items-center justify-center rounded-xl px-4 text-xs text-foreground-secondary transition-colors hover:text-heading'
         >
           {t('downloadAll')}
-        </PlaygroundLinkButton>
+        </button>
       </div>
     </PlaygroundCard>
   );

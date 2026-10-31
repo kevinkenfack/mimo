@@ -11,7 +11,7 @@ export default function LocalizedNotFound() {
     <main className='flex min-h-svh flex-col items-center justify-center px-6'>
       {/** biome-ignore lint/performance/noImgElement: not needed */}
       <img
-        src={`https://api.mimo.sh/${encodeURIComponent(path.replace('/', ''))}?size=96&detailLevel=full&mood=surprised&animations=blink,float`}
+        src={`https://api.mimoid.fun/${encodeURIComponent(path.replace('/', ''))}?size=96&detailLevel=full&mood=surprised&animations=blink,float`}
         width={96}
         height={96}
         alt={t('imageAlt')}

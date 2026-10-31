@@ -60,6 +60,7 @@ export type PlaygroundSettings = {
   detailLevel: FacesDetailLevel;
   depth: FacesDepth;
   animation: PlaygroundAnimation;
+  interactive: boolean;
   exportSize: PlaygroundExportSize;
   exportFormat: PlaygroundExportFormat;
 };
@@ -73,11 +74,16 @@ export const DEFAULT_PLAYGROUND_SETTINGS: PlaygroundSettings = {
   detailLevel: 'full',
   depth: 'medium',
   animation: 'blink',
+  interactive: false,
   exportSize: 256,
   exportFormat: 'png',
 };
 
-export function playgroundExportHref(settings: PlaygroundSettings, format: PlaygroundDownloadFormat) {
+export function playgroundExportHref(
+  settings: PlaygroundSettings,
+  format: PlaygroundDownloadFormat,
+  ts?: string
+) {
   const params = new URLSearchParams({
     format,
     name: settings.name.trim() || 'Mimo',
@@ -88,6 +94,7 @@ export function playgroundExportHref(settings: PlaygroundSettings, format: Playg
     detail: settings.detailLevel,
     depth: settings.depth,
     size: String(settings.exportSize),
+    ...(ts ? { ts } : {}),
   });
 
   return `/api/playground?${params.toString()}`;

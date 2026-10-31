@@ -1,11 +1,11 @@
 'use client';
 
-interface SegmentOption<Value extends string | number> {
+interface SegmentOption<Value extends string | number | boolean> {
   value: Value;
   label: string;
 }
 
-interface PlaygroundSegmentedProps<Value extends string | number> {
+interface PlaygroundSegmentedProps<Value extends string | number | boolean> {
   label?: string;
   value: Value;
   options: readonly SegmentOption<Value>[];
@@ -14,7 +14,7 @@ interface PlaygroundSegmentedProps<Value extends string | number> {
   className?: string;
 }
 
-export function PlaygroundSegmented<Value extends string | number>({
+export function PlaygroundSegmented<Value extends string | number | boolean>({
   label,
   value,
   options,

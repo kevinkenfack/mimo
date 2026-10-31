@@ -108,6 +108,7 @@ export function PlaygroundPreview({ settings }: { settings: PlaygroundSettings }
             detailLevel={settings.detailLevel}
             depth={settings.depth}
             animations={settings.animation === 'none' ? [] : [settings.animation]}
+            interactive={settings.interactive}
             role='img'
             aria-label={t('ariaLabel', { name })}
           />

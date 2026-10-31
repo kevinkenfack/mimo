@@ -1,10 +1,10 @@
 <div align="center">
   <br />
-  <a href="https://api.mimo.sh/Sakura?size=80&detailLevel=full&animations=float"><img src="https://api.mimo.sh/Sakura?size=80&detailLevel=full&animations=float" width="80" height="80" alt="Sakura" /></a>&nbsp;&nbsp;
-  <a href="https://api.mimo.sh/Atlas?size=80&detailLevel=full&animations=eyebrowBounce"><img src="https://api.mimo.sh/Atlas?size=80&detailLevel=full&animations=eyebrowBounce" width="80" height="80" alt="Atlas" /></a>&nbsp;&nbsp;
-  <a href="https://api.mimo.sh/Luna?size=80&detailLevel=full&animations=glance"><img src="https://api.mimo.sh/Luna?size=80&detailLevel=full&animations=glance" width="80" height="80" alt="Luna" /></a>&nbsp;&nbsp;
-  <a href="https://api.mimo.sh/Phoenix?size=80&detailLevel=full&animations=eyeWander,sway"><img src="https://api.mimo.sh/Phoenix?size=80&detailLevel=full&animations=eyeWander,sway" width="80" height="80" alt="Phoenix" /></a>&nbsp;&nbsp;
-  <a href="https://api.mimo.sh/Steve?size=80&detailLevel=full&animations=blink,glance"><img src="https://api.mimo.sh/Steve?size=80&detailLevel=full&animations=blink,glance" width="80" height="80" alt="Steve" /></a>
+  <a href="https://api.mimoid.fun/Sakura?size=80&detailLevel=full&animations=float"><img src="https://api.mimoid.fun/Sakura?size=80&detailLevel=full&animations=float" width="80" height="80" alt="Sakura" /></a>&nbsp;&nbsp;
+  <a href="https://api.mimoid.fun/Atlas?size=80&detailLevel=full&animations=eyebrowBounce"><img src="https://api.mimoid.fun/Atlas?size=80&detailLevel=full&animations=eyebrowBounce" width="80" height="80" alt="Atlas" /></a>&nbsp;&nbsp;
+  <a href="https://api.mimoid.fun/Luna?size=80&detailLevel=full&animations=glance"><img src="https://api.mimoid.fun/Luna?size=80&detailLevel=full&animations=glance" width="80" height="80" alt="Luna" /></a>&nbsp;&nbsp;
+  <a href="https://api.mimoid.fun/Phoenix?size=80&detailLevel=full&animations=eyeWander,sway"><img src="https://api.mimoid.fun/Phoenix?size=80&detailLevel=full&animations=eyeWander,sway" width="80" height="80" alt="Phoenix" /></a>&nbsp;&nbsp;
+  <a href="https://api.mimoid.fun/Steve?size=80&detailLevel=full&animations=blink,glance"><img src="https://api.mimoid.fun/Steve?size=80&detailLevel=full&animations=blink,glance" width="80" height="80" alt="Steve" /></a>
   <br /><br />
 
   <h3>Mimo</h3>
@@ -17,7 +17,7 @@
   </p>
 
   <p>
-    <a href="https://mimo.sh">Documentation</a> · <a href="https://api.mimo.sh">API</a> · <a href="https://www.npmjs.com/package/mimo-id">npm</a>
+    <a href="https://mimoid.fun">Documentation</a> · <a href="https://api.mimoid.fun">API</a> · <a href="https://www.npmjs.com/package/mimo-id">npm</a>
   </p>
 </div>
 
@@ -45,7 +45,7 @@ pnpm add mimo-id
 Generate avatars as SVG over HTTP. The name is the URL path — all options go in the query string.
 
 ```html
-<img src="https://api.mimo.sh/mimo" />
+<img src="https://api.mimoid.fun/mimo" />
 ```
 
 ### React
@@ -131,7 +131,7 @@ Props and API params share the same names. In the API, `name` is the URL path �
 
 ## Documentation
 
-For interactive examples, a live playground, and the full API reference, visit **[mimo.sh](https://mimo.sh)**.
+For interactive examples, a live playground, and the full API reference, visit **[mimoid.fun](https://mimoid.fun)**.
 
 ## License
 

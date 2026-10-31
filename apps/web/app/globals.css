@@ -227,3 +227,25 @@ body {
     transition: none !important;
   }
 }
+
+/* Ensure native select dropdown menus render properly in dark mode across browsers */
+select {
+  color-scheme: light;
+}
+
+.dark select,
+:where(.dark, .dark *) select {
+  color-scheme: dark;
+}
+
+select option {
+  background-color: #ffffff;
+  color: #111111;
+}
+
+.dark select option,
+:where(.dark, .dark *) select option {
+  background-color: #1d1d1c;
+  color: #f2f1ed;
+}
+

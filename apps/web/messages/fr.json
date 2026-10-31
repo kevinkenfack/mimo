@@ -28,7 +28,10 @@
       "mood": "Expression",
       "detail": "Niveau de détail",
       "depth": "Profondeur",
-      "animation": "Mouvement"
+      "animation": "Mouvement",
+      "interactive": "Interaction au survol",
+      "interactiveOn": "Activé",
+      "interactiveOff": "Désactivé"
     },
     "options": {
       "shapes": {
@@ -93,7 +96,7 @@
       "scale": "Échelle",
       "format": "Format",
       "download": "Télécharger {format}",
-      "downloadAll": "Tout télécharger (.ZIP)",
+      "downloadAll": "Tout télécharger",
       "downloadAllHint": "PNG + SVG réunis dans une archive ZIP.",
       "note": "Les exports sont statiques ; l’animation reste dans l’aperçu en direct."
     }

@@ -54,13 +54,18 @@ export function PlaygroundControls({ settings, onChange, onRandomize, onReset }:
     label: options(`depths.${value}`),
   }));
 
-  const mainAnimationOptions = PLAYGROUND_ANIMATIONS.slice(0, 5).map((value) => ({
+  const mainAnimationOptions = PLAYGROUND_ANIMATIONS.map((value) => ({
     value,
     label: options(`animations.${value}`),
   }));
 
+  const interactiveOptions = [
+    { value: false, label: t('interactiveOff') },
+    { value: true, label: t('interactiveOn') },
+  ];
+
   return (
-    <div className='flex h-full flex-col'>
+    <div className='flex flex-col lg:h-full'>
       <div className='mb-3 flex items-center justify-between px-1 text-xs'>
         <span className='font-mono text-[0.6875rem] font-semibold uppercase tracking-[0.2em] text-foreground-tertiary'>
           CONTROLS
@@ -75,7 +80,7 @@ export function PlaygroundControls({ settings, onChange, onRandomize, onReset }:
         </button>
       </div>
 
-      <div className='flex-1 space-y-3 overflow-y-auto overscroll-contain pr-1 pb-0 scrollbar-thin'>
+      <div className='flex-1 space-y-3 touch-pan-y pr-1 pb-0 lg:overflow-y-auto lg:overscroll-contain lg:scrollbar-thin'>
         <PlaygroundCard title={t('name')}>
           <div className='space-y-2'>
             <div className='grid grid-cols-[minmax(0,1fr)_auto] gap-2'>
@@ -132,6 +137,7 @@ export function PlaygroundControls({ settings, onChange, onRandomize, onReset }:
           onReset={() => {
             onChange('shape', DEFAULT_PLAYGROUND_SETTINGS.shape);
             onChange('depth', DEFAULT_PLAYGROUND_SETTINGS.depth);
+            onChange('interactive', DEFAULT_PLAYGROUND_SETTINGS.interactive);
           }}
           resetTitle='Reset geometry'
         >
@@ -149,6 +155,13 @@ export function PlaygroundControls({ settings, onChange, onRandomize, onReset }:
               options={depthOptions}
               onChange={(value) => onChange('depth', value)}
               columns={4}
+            />
+            <PlaygroundSegmented
+              label={t('interactive')}
+              value={settings.interactive}
+              options={interactiveOptions}
+              onChange={(value) => onChange('interactive', value)}
+              columns={2}
             />
           </div>
         </PlaygroundCard>
@@ -213,10 +226,13 @@ export function PlaygroundControls({ settings, onChange, onRandomize, onReset }:
                   value={settings.gradient}
                   onChange={(e) => onChange('gradient', e.currentTarget.value)}
                   className='h-9 w-full appearance-none rounded-xl border border-border/80 bg-surface px-3 pr-8 text-xs font-medium text-foreground transition-colors hover:bg-surface-elevated focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 cursor-pointer scheme-light dark:scheme-dark'
-                  style={{ colorScheme: 'inherit' }}
                 >
                   {GRADIENTS.map((grad) => (
-                    <option key={grad.name} value={grad.name}>
+                    <option
+                      key={grad.name}
+                      value={grad.name}
+                      className='bg-white text-zinc-900 dark:bg-[#1d1d1c] dark:text-[#f2f1ed]'
+                    >
                       {colorNames(grad.name.toLowerCase())}
                     </option>
                   ))}
@@ -239,7 +255,7 @@ export function PlaygroundControls({ settings, onChange, onRandomize, onReset }:
             value={settings.animation}
             options={mainAnimationOptions}
             onChange={(value) => onChange('animation', value)}
-            columns={3}
+            columns={4}
           />
         </PlaygroundCard>
 

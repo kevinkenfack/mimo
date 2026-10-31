@@ -26,7 +26,7 @@ export function LanguageToggle() {
       aria-label={label}
       title={label}
       lang={targetLocale}
-      className='inline-flex h-7 min-w-7 cursor-pointer items-center justify-center rounded-md px-1.5 font-mono text-[0.625rem] font-medium tracking-wide text-foreground-quaternary transition-colors hover:text-foreground-tertiary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-foreground-quaternary'
+      className='inline-flex h-7 w-7 cursor-pointer items-center justify-center rounded-md p-1 font-mono text-[0.6875rem] font-medium tracking-wide text-foreground-quaternary transition-colors hover:text-foreground-tertiary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-foreground-quaternary'
     >
       {targetLocale.toUpperCase()}
     </button>
