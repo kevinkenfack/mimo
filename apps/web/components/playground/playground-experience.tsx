@@ -20,7 +20,6 @@ import {
   type PlaygroundSettings,
 } from '@/lib/playground';
 import { PlaygroundControls } from './playground-controls';
-import { PlaygroundDownloads } from './playground-downloads';
 import { PlaygroundPreview } from './playground-preview';
 
 function pickRandom<Value>(values: readonly Value[]): Value {
@@ -92,58 +91,51 @@ export function PlaygroundExperience() {
   }
 
   return (
-    <main className='flex min-h-svh flex-col bg-background'>
-      <div className='mx-auto w-full max-w-6xl flex-1 px-3 py-6 sm:px-6 sm:py-10'>
-        <header className='flex items-center justify-between border-b border-divider pb-4'>
+    <main className='flex min-h-svh flex-col bg-background lg:h-screen lg:overflow-hidden'>
+      <header className='flex h-14 shrink-0 items-center justify-between border-b border-divider px-4 sm:px-6 lg:px-8'>
+        <div className='flex items-center gap-2.5'>
           <LocaleLink href='/' className='text-[0.9375rem] font-medium tracking-[-0.01em] text-heading'>
             Mimo
           </LocaleLink>
-          <div className='flex items-center gap-1'>
-            <LocaleLink
-              href='/'
-              className='rounded-md px-2 py-1 text-xs text-foreground-secondary transition-colors hover:text-heading focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-foreground-quaternary'
-            >
-              {t('home')}
-            </LocaleLink>
-            <LocaleLink
-              href='/components'
-              className='rounded-md px-2 py-1 text-xs text-foreground-secondary transition-colors hover:text-heading focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-foreground-quaternary'
-            >
-              {common('explore')}
-            </LocaleLink>
-            <LanguageToggle />
-            <ThemeToggle />
-          </div>
-        </header>
+          <span aria-hidden='true' className='text-xs text-foreground-tertiary/60'>
+            /
+          </span>
+          <span className='text-xs font-medium text-foreground-secondary'>{t('title')}</span>
+        </div>
+        <div className='flex items-center gap-1.5'>
+          <LocaleLink
+            href='/'
+            className='rounded-md px-2 py-1 text-xs text-foreground-secondary transition-colors hover:text-heading focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-foreground-quaternary'
+          >
+            {t('home')}
+          </LocaleLink>
+          <LocaleLink
+            href='/components'
+            className='rounded-md px-2 py-1 text-xs text-foreground-secondary transition-colors hover:text-heading focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-foreground-quaternary'
+          >
+            {common('explore')}
+          </LocaleLink>
+          <LanguageToggle />
+          <ThemeToggle />
+        </div>
+      </header>
 
-        <section className='max-w-3xl pb-6 pt-8 sm:pb-8 sm:pt-12'>
-          <h1 className='[font-family:var(--font-serif),Georgia,serif] text-[2rem] leading-[1.2] font-normal tracking-[-0.02em] text-heading'>
-            {t('title')}
-          </h1>
-          <p className='mt-3 max-w-2xl text-sm leading-relaxed text-foreground-secondary sm:text-base'>
-            {t('description')}
-          </p>
-        </section>
-
-        <div className='grid items-start gap-4 lg:grid-cols-[minmax(18rem,0.85fr)_minmax(0,1.15fr)] lg:gap-6'>
-          <div className='order-1 lg:order-2'>
-            <PlaygroundPreview settings={settings} />
-          </div>
-          <div className='order-2 lg:order-1'>
-            <PlaygroundControls
-              settings={settings}
-              onChange={updateSetting}
-              onRandomize={randomize}
-              onReset={reset}
-            />
-          </div>
+      <div className='grid flex-1 min-h-0 items-stretch gap-4 p-3 sm:p-4 lg:p-6 lg:grid-cols-[minmax(0,1.25fr)_420px] xl:grid-cols-[minmax(0,1.35fr)_450px]'>
+        <div className='h-full min-h-115 lg:min-h-0'>
+          <PlaygroundPreview settings={settings} />
         </div>
 
-        <div className='mt-4 sm:mt-6'>
-          <PlaygroundDownloads settings={settings} onChange={updateSetting} />
+        <div className='h-full min-h-0'>
+          <PlaygroundControls
+            settings={settings}
+            onChange={updateSetting}
+            onRandomize={randomize}
+            onReset={reset}
+          />
         </div>
       </div>
-      <SiteFooter />
+
+      <SiteFooter fullWidth />
     </main>
   );
 }

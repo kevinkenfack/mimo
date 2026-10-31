@@ -47,7 +47,10 @@ export function ComponentExampleCard({
       aria-labelledby={`${id}-title`}
     >
       <header className='min-w-0'>
-        <h3 id={`${id}-title`} className='break-words text-lg font-semibold tracking-[-0.02em] text-heading'>
+        <h3
+          id={`${id}-title`}
+          className='wrap-break-word text-lg font-semibold tracking-[-0.02em] text-heading'
+        >
           {title}
         </h3>
         <p className='mt-1 max-w-2xl text-xs leading-relaxed text-foreground-secondary sm:text-sm'>
@@ -83,7 +86,7 @@ export function ComponentExampleCard({
             ) : (
               <IconCopy className='size-4 shrink-0' aria-hidden='true' />
             )}
-            <span className='break-words'>
+            <span className='wrap-break-word'>
               {copyStatus === 'copied'
                 ? t('copied')
                 : copyStatus === 'error'

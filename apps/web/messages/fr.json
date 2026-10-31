@@ -334,8 +334,9 @@
     "home": "Retour à l’accueil"
   },
   "footer": {
+    "craftedBy": "Créé par",
     "madeBy": "Créé par",
-    "description": "Les aperçus Mimo sont générés dans votre navigateur. Aucun compte n’est nécessaire.",
+    "description": "Tout s’exécute dans votre navigateur. Aucune image, aucune donnée stockée ou envoyée.",
     "version": "v{version}",
     "copyright": "© {year} Kevin Kenfack",
     "twitter": "X (Twitter)",

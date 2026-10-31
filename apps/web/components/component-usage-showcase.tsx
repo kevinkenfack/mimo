@@ -66,7 +66,7 @@ export function GroupChat() {
             {!message.mine && (
               <p className="mb-1 text-xs font-semibold">{message.author}</p>
             )}
-            <p className="break-words text-sm leading-relaxed">{message.text}</p>
+            <p className="wrap-break-word text-sm leading-relaxed">{message.text}</p>
           </div>
           {message.mine && (
             <Mimo
@@ -190,7 +190,7 @@ export function CommentList() {
               <strong>{comment.author}</strong>
               <span className="text-sm text-foreground-tertiary">{comment.time}</span>
             </div>
-            <p className="mt-1 break-words text-sm leading-relaxed">{comment.text}</p>
+            <p className="mt-1 wrap-break-word text-sm leading-relaxed">{comment.text}</p>
             <span className="mt-2 inline-flex text-xs text-foreground-secondary">
               {likeLabel}
             </span>
@@ -280,7 +280,7 @@ function ChatPreview({
               {!message.mine && (
                 <p className='mb-1 text-xs font-semibold text-foreground-secondary'>{message.author}</p>
               )}
-              <p className='break-words text-sm leading-relaxed sm:text-base'>{message.text}</p>
+              <p className='wrap-break-word text-sm leading-relaxed sm:text-base'>{message.text}</p>
             </div>
             {message.mine && (
               <Mimo
@@ -307,7 +307,7 @@ function ChatPreview({
             interactive={false}
             className='shrink-0'
           />
-          <span className='min-w-0 break-words'>{typingLabel}</span>
+          <span className='min-w-0 wrap-break-word'>{typingLabel}</span>
         </div>
       </div>
     </div>
@@ -454,7 +454,7 @@ function CommentsPreview({
                 <strong className='text-sm font-semibold text-heading'>{comment.author}</strong>
                 <span className='text-xs text-foreground-tertiary'>{comment.time}</span>
               </div>
-              <p className='mt-1 break-words text-sm leading-relaxed text-heading-secondary'>
+              <p className='mt-1 wrap-break-word text-sm leading-relaxed text-heading-secondary'>
                 {comment.text}
               </p>
               <span className='mt-2 inline-flex text-xs text-foreground-tertiary'>{likeLabel}</span>
@@ -504,7 +504,7 @@ function AvatarStackPreview({
       </div>
       <div className='min-w-0 sm:text-right'>
         <h4 className='text-sm font-semibold text-heading'>{heading}</h4>
-        <p className='mt-1 break-words text-xs leading-relaxed text-foreground-secondary'>{caption}</p>
+        <p className='mt-1 wrap-break-word text-xs leading-relaxed text-foreground-secondary'>{caption}</p>
       </div>
     </div>
   );

@@ -334,8 +334,9 @@
     "home": "Back to home"
   },
   "footer": {
-    "madeBy": "Made by",
-    "description": "Mimo previews are rendered in your browser. No account is needed.",
+    "craftedBy": "Crafted by",
+    "madeBy": "Crafted by",
+    "description": "Everything runs in your browser. No images, no data, nothing stored or sent.",
     "version": "v{version}",
     "copyright": "© {year} Kevin Kenfack",
     "twitter": "X (Twitter)",

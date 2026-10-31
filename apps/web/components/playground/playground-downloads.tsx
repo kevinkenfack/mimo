@@ -1,103 +1,109 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
+import { IconChevronDown } from '@/lib/icons';
 import {
-  PLAYGROUND_EXPORT_FORMATS,
-  PLAYGROUND_EXPORT_SIZES,
+  type PLAYGROUND_EXPORT_FORMATS,
+  type PLAYGROUND_EXPORT_SIZES,
   type PlaygroundSettings,
   playgroundExportHref,
 } from '@/lib/playground';
 import { PlaygroundLinkButton } from './playground-button';
+import { PlaygroundCard } from './playground-card';
 
-type PlaygroundDownloadsProps = {
+interface PlaygroundDownloadsProps {
   settings: PlaygroundSettings;
   onChange: <Key extends keyof PlaygroundSettings>(key: Key, value: PlaygroundSettings[Key]) => void;
-};
+}
 
 export function PlaygroundDownloads({ settings, onChange }: PlaygroundDownloadsProps) {
   const t = useTranslations('playground.export');
 
-  return (
-    <section
-      className='rounded-2xl border border-border bg-surface-raised p-4 sm:p-5'
-      aria-labelledby='playground-export-title'
-    >
-      <div>
-        <h2 id='playground-export-title' className='text-base font-medium tracking-[-0.01em] text-heading'>
-          {t('title')}
-        </h2>
-        <p className='mt-1 text-xs leading-relaxed text-foreground-secondary'>{t('description')}</p>
-      </div>
+  const downloadFilename = `mimo-${(settings.name.trim() || 'avatar').toLowerCase()}.${settings.exportFormat}`;
+  const zipFilename = `mimo-${(settings.name.trim() || 'avatar').toLowerCase()}.zip`;
 
-      <div className='mt-4 grid grid-cols-2 gap-3'>
-        <label
-          htmlFor='playground-export-size'
-          className='grid gap-1.5 text-sm font-medium text-heading-secondary'
-        >
-          <span>{t('scale')}</span>
+  const scaleOptions = [
+    { value: 256, label: '1x' },
+    { value: 512, label: '2x' },
+    { value: 1024, label: '4x' },
+  ];
+
+  const formatOptions = [
+    { value: 'png', label: 'PNG' },
+    { value: 'svg', label: 'SVG' },
+  ];
+
+  return (
+    <PlaygroundCard
+      title={t('eyebrow')}
+      badge={<span className='font-mono text-[0.6875rem] text-foreground-tertiary'>3/5</span>}
+    >
+      <div className='flex items-center gap-2'>
+        <div className='relative w-28 shrink-0'>
           <select
-            id='playground-export-size'
+            id='playground-export-scale'
             value={String(settings.exportSize)}
-            onChange={(event) => {
-              const size = PLAYGROUND_EXPORT_SIZES.find(
-                (option) => String(option) === event.currentTarget.value
-              );
-              if (size !== undefined) onChange('exportSize', size);
+            onChange={(e) => {
+              const val = Number(e.currentTarget.value) as (typeof PLAYGROUND_EXPORT_SIZES)[number];
+              onChange('exportSize', val);
             }}
-            className='min-h-11 w-full min-w-0 rounded-xl border border-border-input bg-background px-3 py-2 text-sm text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50'
+            aria-label={t('scale')}
+            className='h-10 w-full appearance-none rounded-xl border border-border/80 bg-surface px-3 pr-8 text-xs font-medium text-heading transition-colors hover:bg-surface-elevated focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 cursor-pointer'
           >
-            {PLAYGROUND_EXPORT_SIZES.map((size) => (
-              <option key={size} value={String(size)}>
-                {`${size / 256}× (${size} px)`}
+            {scaleOptions.map((opt) => (
+              <option key={opt.value} value={opt.value}>
+                {opt.label}
               </option>
             ))}
           </select>
-        </label>
+          <IconChevronDown
+            className='pointer-events-none absolute right-2.5 top-1/2 size-3.5 -translate-y-1/2 text-foreground-tertiary'
+            aria-hidden='true'
+          />
+        </div>
 
-        <label
-          htmlFor='playground-export-format'
-          className='grid gap-1.5 text-sm font-medium text-heading-secondary'
-        >
-          <span>{t('format')}</span>
+        <div className='relative flex-1'>
           <select
             id='playground-export-format'
             value={settings.exportFormat}
-            onChange={(event) => {
-              const format = PLAYGROUND_EXPORT_FORMATS.find((option) => option === event.currentTarget.value);
-              if (format) onChange('exportFormat', format);
+            onChange={(e) => {
+              const val = e.currentTarget.value as (typeof PLAYGROUND_EXPORT_FORMATS)[number];
+              onChange('exportFormat', val);
             }}
-            className='min-h-11 w-full min-w-0 rounded-xl border border-border-input bg-background px-3 py-2 text-sm uppercase text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50'
+            aria-label={t('format')}
+            className='h-10 w-full appearance-none rounded-xl border border-border/80 bg-surface px-3 pr-8 text-xs font-semibold uppercase text-heading transition-colors hover:bg-surface-elevated focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 cursor-pointer'
           >
-            {PLAYGROUND_EXPORT_FORMATS.map((format) => (
-              <option key={format} value={format}>
-                {format.toUpperCase()}
+            {formatOptions.map((opt) => (
+              <option key={opt.value} value={opt.value}>
+                {opt.label}
               </option>
             ))}
           </select>
-        </label>
+          <IconChevronDown
+            className='pointer-events-none absolute right-3 top-1/2 size-3.5 -translate-y-1/2 text-foreground-tertiary'
+            aria-hidden='true'
+          />
+        </div>
       </div>
 
-      <div className='mt-4 grid gap-3'>
+      <div className='mt-2.5 space-y-1.5'>
         <PlaygroundLinkButton
           href={playgroundExportHref(settings, settings.exportFormat)}
-          download
-          variant='primary'
-          className='min-h-12 w-full rounded-xl py-3 text-base'
+          download={downloadFilename}
+          className='min-h-10 w-full justify-center rounded-xl bg-heading text-background font-semibold text-xs transition-opacity hover:opacity-90 shadow-xs'
         >
           {t('download', { format: `.${settings.exportFormat.toUpperCase()}` })}
         </PlaygroundLinkButton>
+
         <PlaygroundLinkButton
           href={playgroundExportHref(settings, 'zip')}
-          download
-          variant='secondary'
-          className='min-h-12 w-full rounded-xl py-3 text-base'
+          download={zipFilename}
+          variant='ghost'
+          className='min-h-9 w-full justify-center rounded-xl text-xs text-foreground-secondary hover:text-heading transition-colors'
         >
           {t('downloadAll')}
         </PlaygroundLinkButton>
       </div>
-
-      <p className='mt-3 text-xs leading-relaxed text-foreground-tertiary'>{t('downloadAllHint')}</p>
-      <p className='mt-1 text-xs leading-relaxed text-foreground-tertiary'>{t('note')}</p>
-    </section>
+    </PlaygroundCard>
   );
 }

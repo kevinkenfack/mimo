@@ -204,6 +204,11 @@ body {
     color: inherit;
     text-decoration: none;
   }
+  @layer base {
+    :where(button, [role="button"]):not(:disabled) {
+      cursor: pointer;
+    }
+  }
 }
 
 [data-mimo],

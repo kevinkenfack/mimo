@@ -931,5 +931,5 @@ export function ReferenceSection() {
 }
 
 export function PageFooter() {
-  return <SiteFooter narrow />;
+  return <SiteFooter />;
 }
