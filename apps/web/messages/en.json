@@ -4,6 +4,103 @@
     "description": "Generate unique, fully animated avatars from any string. 145,152 combinations with blinking, floating, and glancing animations — all deterministic and open-source.",
     "openGraphDescription": "Generate unique, fully animated avatars from any string. Deterministic, customizable, and open-source."
   },
+  "components": {
+    "metadata": {
+      "title": "Mimo anatomy — Explore avatar features",
+      "description": "Explore the eyes, eyebrows, mouths, cheeks, and accessories that give every Mimo avatar its personality."
+    },
+    "navLabel": "Primary navigation",
+    "hero": {
+      "eyebrow": "Mimo anatomy",
+      "title": "One face, endless personalities.",
+      "description": "Eyes, brows, mouths, cheeks, and accessories combine to give every Mimo its character. Explore the styles, then try them in the playground.",
+      "exploreCta": "Explore the features",
+      "previewLabel": "A few Mimos, always in motion"
+    },
+    "stats": {
+      "combinations": "combinations",
+      "combinationsValue": "145,152"
+    },
+    "gallery": {
+      "eyebrow": "A living catalogue",
+      "title": "Explore every detail",
+      "description": "Choose a category to browse its variations. Each preview is a real Mimo face built around the selected feature.",
+      "filtersLabel": "Filter features by category",
+      "variantsCount": "{count} variants"
+    },
+    "groups": {
+      "eyes": {
+        "label": "Eyes",
+        "description": "Six shapes make every gaze feel a little different."
+      },
+      "mouths": {
+        "label": "Mouths",
+        "description": "Seven expressions set the tone: happy, surprised, playful, or calm."
+      },
+      "eyebrows": {
+        "label": "Eyebrows",
+        "description": "Four styles add a little more character to each face."
+      },
+      "cheeks": {
+        "label": "Cheeks",
+        "description": "A hint of blush—or none—can change the whole expression."
+      },
+      "accessories": {
+        "label": "Accessories",
+        "description": "From simple glasses to shades, choose the finishing touch."
+      }
+    },
+    "items": {
+      "eyes": {
+        "round": "Round",
+        "cross": "Cross",
+        "line": "Lines",
+        "curved": "Curved",
+        "wink": "Wink",
+        "heart": "Heart"
+      },
+      "mouths": {
+        "smile": "Smile",
+        "grin": "Big grin",
+        "o": "O mouth",
+        "cat": "Cat",
+        "tongue": "Tongue out",
+        "smirk": "Smirk",
+        "flat": "Neutral"
+      },
+      "eyebrows": {
+        "arched": "Arched",
+        "flat": "Flat",
+        "raised": "Raised",
+        "none": "None"
+      },
+      "cheeks": {
+        "blush": "Blush",
+        "none": "No blush"
+      },
+      "accessories": {
+        "none": "None",
+        "glasses": "Glasses",
+        "sunglasses": "Sunglasses"
+      }
+    },
+    "preview": {
+      "eyebrow": "Selected feature",
+      "description": "Selected style: {feature} — category: {group}. Keep the same name to get the same face every time.",
+      "copyCode": "Copy code",
+      "copied": "Code copied",
+      "copySuccess": "React snippet copied to the clipboard.",
+      "copyError": "Could not access the clipboard.",
+      "tryInPlayground": "Try it in the playground"
+    },
+    "next": {
+      "eyebrow": "Your turn",
+      "title": "The features are just the beginning.",
+      "description": "In the playground, change the name, expression, palette, shape, and motion, then export your avatar.",
+      "cta": "Create my Mimo"
+    },
+    "footer": "Deterministic, animated, open-source avatars."
+  },
   "playground": {
     "metadata": {
       "title": "Mimo Playground — Create your avatar",
@@ -108,7 +205,10 @@
   },
   "common": {
     "copyToClipboard": "Copy to clipboard",
-    "packageManager": "Package manager"
+    "packageManager": "Package manager",
+    "home": "Home",
+    "explore": "Explore",
+    "playground": "Playground"
   },
   "hero": {
     "taglineFirst": "Tiny spirits, born from strings.",
@@ -246,6 +346,11 @@
     "home": "Back to home"
   },
   "footer": {
-    "description": "Deterministic, animated, open-source avatars."
+    "madeBy": "Made by",
+    "description": "Mimo previews are rendered in your browser. No account is needed.",
+    "version": "v{version}",
+    "copyright": "© {year} Kevin Kenfack",
+    "twitter": "X (Twitter)",
+    "github": "GitHub"
   }
 }

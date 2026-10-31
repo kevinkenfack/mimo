@@ -4,6 +4,103 @@
     "description": "Générez des avatars uniques et entièrement animés à partir de n’importe quelle chaîne. 145 152 combinaisons avec clignements, mouvements flottants et regards mobiles — le tout déterministe et open source.",
     "openGraphDescription": "Générez des avatars uniques et entièrement animés à partir de n’importe quelle chaîne. Déterministes, personnalisables et open source."
   },
+  "components": {
+    "metadata": {
+      "title": "Anatomie de Mimo — Explorer les traits d’avatar",
+      "description": "Explorez les styles d’yeux, de sourcils, de bouches, de joues et d’accessoires qui donnent à chaque avatar Mimo sa personnalité."
+    },
+    "navLabel": "Navigation principale",
+    "hero": {
+      "eyebrow": "L’anatomie de Mimo",
+      "title": "Un visage, des milliers de personnalités.",
+      "description": "Yeux, sourcils, bouches, joues et accessoires se combinent pour donner à chaque Mimo son caractère. Explorez les styles, puis essayez-les dans le Playground.",
+      "exploreCta": "Explorer les traits",
+      "previewLabel": "Quelques Mimo, toujours en mouvement"
+    },
+    "stats": {
+      "combinations": "combinaisons",
+      "combinationsValue": "145 152"
+    },
+    "gallery": {
+      "eyebrow": "Catalogue vivant",
+      "title": "Explorez chaque détail",
+      "description": "Choisissez une catégorie pour parcourir les variantes. Chaque aperçu montre un vrai visage Mimo construit autour du trait sélectionné.",
+      "filtersLabel": "Filtrer les traits par catégorie",
+      "variantsCount": "{count} variantes"
+    },
+    "groups": {
+      "eyes": {
+        "label": "Yeux",
+        "description": "Six formes pour faire varier le regard, du plus doux au plus expressif."
+      },
+      "mouths": {
+        "label": "Bouches",
+        "description": "Sept expressions donnent le ton : sourire, surprise, malice ou calme."
+      },
+      "eyebrows": {
+        "label": "Sourcils",
+        "description": "Quatre styles ajoutent une nuance de caractère au visage."
+      },
+      "cheeks": {
+        "label": "Joues",
+        "description": "Un soupçon de rose — ou pas — change toute l’expression."
+      },
+      "accessories": {
+        "label": "Accessoires",
+        "description": "Des lunettes discrètes aux solaires, choisissez la touche finale."
+      }
+    },
+    "items": {
+      "eyes": {
+        "round": "Ronds",
+        "cross": "Croix",
+        "line": "Traits",
+        "curved": "Courbés",
+        "wink": "Clin d’œil",
+        "heart": "Cœur"
+      },
+      "mouths": {
+        "smile": "Sourire",
+        "grin": "Grand sourire",
+        "o": "Bouche en O",
+        "cat": "Chat",
+        "tongue": "Langue tirée",
+        "smirk": "Sourire en coin",
+        "flat": "Neutre"
+      },
+      "eyebrows": {
+        "arched": "Arqués",
+        "flat": "Plats",
+        "raised": "Relevés",
+        "none": "Aucun"
+      },
+      "cheeks": {
+        "blush": "Joues rosies",
+        "none": "Sans blush"
+      },
+      "accessories": {
+        "none": "Aucun",
+        "glasses": "Lunettes",
+        "sunglasses": "Lunettes de soleil"
+      }
+    },
+    "preview": {
+      "eyebrow": "Trait sélectionné",
+      "description": "Style sélectionné : {feature} — catégorie : {group}. Avec ce même nom, le visage restera identique.",
+      "copyCode": "Copier le code",
+      "copied": "Code copié",
+      "copySuccess": "Extrait React copié dans le presse-papiers.",
+      "copyError": "Impossible d’accéder au presse-papiers.",
+      "tryInPlayground": "Essayer dans le Playground"
+    },
+    "next": {
+      "eyebrow": "À vous de jouer",
+      "title": "Les traits ne sont qu’un début.",
+      "description": "Dans le Playground, changez le nom, l’expression, la palette, la forme et l’animation, puis exportez votre avatar.",
+      "cta": "Créer mon Mimo"
+    },
+    "footer": "Des avatars déterministes, animés et open source."
+  },
   "playground": {
     "metadata": {
       "title": "Playground Mimo — Créez votre avatar",
@@ -108,7 +205,10 @@
   },
   "common": {
     "copyToClipboard": "Copier dans le presse-papiers",
-    "packageManager": "Gestionnaire de paquets"
+    "packageManager": "Gestionnaire de paquets",
+    "home": "Accueil",
+    "explore": "Explorer",
+    "playground": "Playground"
   },
   "hero": {
     "taglineFirst": "De petits esprits nés de chaînes de caractères.",
@@ -246,6 +346,11 @@
     "home": "Retour à l’accueil"
   },
   "footer": {
-    "description": "Des avatars déterministes, animés et open source."
+    "madeBy": "Créé par",
+    "description": "Les aperçus Mimo sont générés dans votre navigateur. Aucun compte n’est nécessaire.",
+    "version": "v{version}",
+    "copyright": "© {year} Kevin Kenfack",
+    "twitter": "X (Twitter)",
+    "github": "GitHub"
   }
 }

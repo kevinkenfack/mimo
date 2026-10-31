@@ -210,3 +210,15 @@ body {
 .mimo {
   color: #000;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  [data-mimo][data-explorer-avatar],
+  [data-mimo][data-explorer-avatar] * {
+    animation: none !important;
+    transition: none !important;
+  }
+}

@@ -3,6 +3,7 @@
 import { useTranslations } from 'next-intl';
 import { parseAsInteger, parseAsString, parseAsStringLiteral, useQueryStates } from 'nuqs';
 import { LanguageToggle } from '@/components/language-toggle';
+import { SiteFooter } from '@/components/site-footer';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { Link as LocaleLink } from '@/i18n/navigation';
 import { GRADIENTS, HERO_NAMES, VARIETY_NAMES } from '@/lib/constants';
@@ -28,6 +29,7 @@ function pickRandom<Value>(values: readonly Value[]): Value {
 
 export function PlaygroundExperience() {
   const t = useTranslations('playground');
+  const common = useTranslations('common');
   const [querySettings, setQuerySettings] = useQueryStates(
     {
       name: parseAsString.withDefault(DEFAULT_PLAYGROUND_SETTINGS.name),
@@ -90,8 +92,8 @@ export function PlaygroundExperience() {
   }
 
   return (
-    <main className='min-h-svh bg-background'>
-      <div className='mx-auto w-full max-w-6xl px-3 py-6 sm:px-6 sm:py-10'>
+    <main className='flex min-h-svh flex-col bg-background'>
+      <div className='mx-auto w-full max-w-6xl flex-1 px-3 py-6 sm:px-6 sm:py-10'>
         <header className='flex items-center justify-between border-b border-divider pb-4'>
           <LocaleLink href='/' className='text-[0.9375rem] font-medium tracking-[-0.01em] text-heading'>
             Mimo
@@ -102,6 +104,12 @@ export function PlaygroundExperience() {
               className='rounded-md px-2 py-1 text-xs text-foreground-secondary transition-colors hover:text-heading focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-foreground-quaternary'
             >
               {t('home')}
+            </LocaleLink>
+            <LocaleLink
+              href='/components'
+              className='rounded-md px-2 py-1 text-xs text-foreground-secondary transition-colors hover:text-heading focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-foreground-quaternary'
+            >
+              {common('explore')}
             </LocaleLink>
             <LanguageToggle />
             <ThemeToggle />
@@ -138,6 +146,7 @@ export function PlaygroundExperience() {
           <PlaygroundDownloads settings={settings} onChange={updateSetting} />
         </div>
       </div>
+      <SiteFooter />
     </main>
   );
 }
