@@ -52,10 +52,7 @@ export function ComponentExplorer() {
 
         <section className='grid min-w-0 items-center gap-7 border-b border-divider py-8 sm:py-12 md:grid-cols-[minmax(0,1.1fr)_minmax(16rem,0.9fr)] md:gap-10'>
           <div className='min-w-0'>
-            <p className='text-[0.6875rem] font-medium uppercase tracking-[0.14em] text-foreground-tertiary'>
-              {t('hero.eyebrow')}
-            </p>
-            <h1 className='mt-3 max-w-2xl break-words text-4xl leading-[1.04] font-semibold tracking-[-0.045em] text-heading sm:text-6xl'>
+            <h1 className='[font-family:var(--font-serif),Georgia,serif] max-w-2xl break-words text-[2rem] leading-[1.2] font-normal tracking-[-0.02em] text-heading'>
               {t('hero.title')}
             </h1>
             <p className='mt-4 max-w-xl text-sm leading-relaxed text-foreground-secondary sm:text-base'>
@@ -122,10 +119,7 @@ export function ComponentExplorer() {
 
         <section className='mt-9 grid min-w-0 gap-4 rounded-3xl border border-border bg-surface p-5 sm:mt-12 sm:p-8 md:grid-cols-[minmax(0,1fr)_auto] md:items-center'>
           <div className='min-w-0'>
-            <p className='text-[0.6875rem] font-medium uppercase tracking-[0.14em] text-foreground-tertiary'>
-              {t('next.eyebrow')}
-            </p>
-            <h2 className='mt-2 break-words text-2xl font-semibold tracking-[-0.03em] text-heading sm:text-3xl'>
+            <h2 className='[font-family:var(--font-serif),Georgia,serif] mt-2 break-words text-[1.625rem] leading-[1.15] font-normal tracking-[-0.02em] text-heading sm:text-[2rem]'>
               {t('next.title')}
             </h2>
             <p className='mt-2 max-w-2xl text-sm leading-relaxed text-foreground-secondary'>

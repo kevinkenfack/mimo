@@ -553,10 +553,7 @@ export function ComponentUsageShowcase() {
   return (
     <section id='usage-examples' className='scroll-mt-6 pt-9 sm:pt-12'>
       <header className='mb-5 max-w-2xl'>
-        <p className='text-[0.6875rem] font-medium uppercase tracking-[0.14em] text-foreground-tertiary'>
-          {t('eyebrow')}
-        </p>
-        <h2 className='mt-2 text-2xl leading-tight font-semibold tracking-[-0.035em] text-heading sm:text-4xl'>
+        <h2 className='[font-family:var(--font-serif),Georgia,serif] text-[1.625rem] leading-[1.15] font-normal tracking-[-0.02em] text-heading sm:text-[2rem]'>
           {t('title')}
         </h2>
         <p className='mt-2 text-sm leading-relaxed text-foreground-secondary'>{t('description')}</p>
