@@ -282,7 +282,7 @@ function renderTokens(tokens: Token[]): ReactNode[] {
   });
 }
 
-export function CodeBlock({ children }: { children: string }) {
+export function CodeBlock({ children, compact = false }: { children: string; compact?: boolean }) {
   const tokens = tokenizeJSX(children);
   const ref = useRef<HTMLPreElement>(null);
 
@@ -299,7 +299,11 @@ export function CodeBlock({ children }: { children: string }) {
   return (
     <pre
       ref={ref}
-      className='my-2 last:mb-0 overflow-x-auto rounded-lg border border-border bg-code-background px-4 py-3 font-mono text-xs leading-[1.6] text-code-block-foreground'
+      className={
+        compact
+          ? 'max-w-full whitespace-pre-wrap break-words font-mono text-xs leading-[1.6] text-code-block-foreground'
+          : 'my-2 last:mb-0 overflow-x-auto rounded-lg border border-border bg-code-background px-4 py-3 font-mono text-xs leading-[1.6] text-code-block-foreground'
+      }
     >
       <code>{renderTokens(tokens)}</code>
     </pre>

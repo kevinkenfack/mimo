@@ -2,6 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import { type ReactNode, useState } from 'react';
+import { CodeBlock } from '@/components/shared';
 import { IconCheck, IconChevronDown, IconCopy } from '@/lib/icons';
 
 type ComponentExampleCardProps = {
@@ -101,9 +102,7 @@ export function ComponentExampleCard({
             <span>React · TSX</span>
             <span className='font-mono'>mimo-id/react</span>
           </div>
-          <pre className='max-w-full whitespace-pre-wrap break-words text-[0.6875rem] leading-relaxed text-foreground-secondary sm:text-xs'>
-            <code className='block max-w-full break-words'>{code}</code>
-          </pre>
+          <CodeBlock compact>{code}</CodeBlock>
         </div>
 
         <output className='sr-only' aria-live='polite'>

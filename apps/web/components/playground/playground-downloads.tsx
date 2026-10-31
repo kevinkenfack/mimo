@@ -23,13 +23,7 @@ export function PlaygroundDownloads({ settings, onChange }: PlaygroundDownloadsP
       aria-labelledby='playground-export-title'
     >
       <div>
-        <p className='text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-foreground-tertiary'>
-          {t('eyebrow')}
-        </p>
-        <h2
-          id='playground-export-title'
-          className='mt-1 text-base font-medium tracking-[-0.01em] text-heading'
-        >
+        <h2 id='playground-export-title' className='text-base font-medium tracking-[-0.01em] text-heading'>
           {t('title')}
         </h2>
         <p className='mt-1 text-xs leading-relaxed text-foreground-secondary'>{t('description')}</p>

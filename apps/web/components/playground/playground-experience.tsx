@@ -117,10 +117,7 @@ export function PlaygroundExperience() {
         </header>
 
         <section className='max-w-3xl pb-6 pt-8 sm:pb-8 sm:pt-12'>
-          <p className='text-[0.6875rem] font-medium uppercase tracking-[0.14em] text-foreground-tertiary'>
-            {t('eyebrow')}
-          </p>
-          <h1 className='[font-family:var(--font-serif),Georgia,serif] mt-2 text-[2.25rem] leading-[1.12] font-normal tracking-[-0.03em] text-heading sm:text-[3.25rem]'>
+          <h1 className='[font-family:var(--font-serif),Georgia,serif] text-[2rem] leading-[1.2] font-normal tracking-[-0.02em] text-heading'>
             {t('title')}
           </h1>
           <p className='mt-3 max-w-2xl text-sm leading-relaxed text-foreground-secondary sm:text-base'>

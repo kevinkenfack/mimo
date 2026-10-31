@@ -54,13 +54,7 @@ export function PlaygroundPreview({ settings }: { settings: PlaygroundSettings }
     >
       <div className='flex items-start justify-between gap-4'>
         <div>
-          <p className='text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-foreground-tertiary'>
-            {t('eyebrow')}
-          </p>
-          <h2
-            id='playground-preview-title'
-            className='mt-1 text-base font-medium tracking-[-0.01em] text-heading'
-          >
+          <h2 id='playground-preview-title' className='text-base font-medium tracking-[-0.01em] text-heading'>
             {t('title')}
           </h2>
           <p className='mt-1 text-xs text-foreground-secondary'>{t('description')}</p>
