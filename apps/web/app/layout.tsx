@@ -36,6 +36,10 @@ export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   maximumScale: 1,
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#faf9f7' },
+    { media: '(prefers-color-scheme: dark)', color: '#0a0a0a' },
+  ],
 };
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -85,7 +89,33 @@ export default async function RootLayout({
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem("mimo-theme");var r=t==="dark"||(t!=="light"&&window.matchMedia("(prefers-color-scheme: dark)").matches);if(r){document.documentElement.classList.add("dark");document.documentElement.style.colorScheme="dark"}else{document.documentElement.classList.remove("dark");document.documentElement.style.colorScheme="light"}}catch(e){}})()`,
+            __html: `
+              try {
+                var theme = localStorage.getItem('mimo-theme') || localStorage.getItem('theme');
+                var isDark = theme === 'dark' || ((theme == null || theme === 'system') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+                var color = isDark ? '#0a0a0a' : '#faf9f7';
+                if (isDark) {
+                  document.documentElement.classList.add('dark');
+                  document.documentElement.style.colorScheme = 'dark';
+                } else {
+                  document.documentElement.classList.remove('dark');
+                  document.documentElement.style.colorScheme = 'light';
+                }
+                var meta = document.querySelector('meta[name="theme-color"]');
+                if (meta) {
+                  meta.setAttribute('content', color);
+                } else {
+                  meta = document.createElement('meta');
+                  meta.name = 'theme-color';
+                  meta.content = color;
+                  document.head.appendChild(meta);
+                }
+                var style = localStorage.getItem('app-style');
+                if (style && style !== 'neutral') {
+                  document.documentElement.setAttribute('data-style', style);
+                }
+              } catch (_) {}
+            `,
           }}
         />
       </head>

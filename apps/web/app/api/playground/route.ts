@@ -17,15 +17,9 @@ import {
 
 export const runtime = 'nodejs';
 
-function filenameFor(name: string, format: PlaygroundDownloadFormat) {
-  const safeName = name
-    .normalize('NFKD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^a-zA-Z0-9_-]+/g, '-')
-    .replace(/^-+|-+$/g, '')
-    .slice(0, 48);
-
-  return `${safeName || 'mimo'}.${format}`;
+function filenameFor(_name: string, format: PlaygroundDownloadFormat, ts?: string) {
+  const safeTs = ts ? `_${ts.replace(/[^a-zA-Z0-9_-]/g, '')}` : '';
+  return `mimo${safeTs}.${format}`;
 }
 
 export function GET(request: NextRequest) {
@@ -59,6 +53,7 @@ export function GET(request: NextRequest) {
     PLAYGROUND_EXPORT_SIZES.find((option) => option === requestedSize) ??
     DEFAULT_PLAYGROUND_SETTINGS.exportSize;
   const requestedGradient = params.get('gradient')?.toLowerCase();
+  const ts = params.get('ts') ?? undefined;
   const gradient =
     GRADIENTS.find((option) => option.name.toLowerCase() === requestedGradient) ?? GRADIENTS[0]!;
   const svg = createAvatarSvg({
@@ -72,7 +67,7 @@ export function GET(request: NextRequest) {
     gradients: gradient.pair,
   });
   const headers = {
-    'Content-Disposition': `attachment; filename="${filenameFor(name, format)}"`,
+    'Content-Disposition': `attachment; filename="${filenameFor(name, format, ts)}"`,
     'Cache-Control': 'private, no-store',
   };
 
@@ -89,8 +84,8 @@ export function GET(request: NextRequest) {
 
   if (format === 'zip') {
     const archive = zipSync({
-      [filenameFor(name, 'png')]: png,
-      [filenameFor(name, 'svg')]: new TextEncoder().encode(svg),
+      [filenameFor(name, 'png', ts)]: png,
+      [filenameFor(name, 'svg', ts)]: new TextEncoder().encode(svg),
     });
 
     return new Response(new Uint8Array(archive), {

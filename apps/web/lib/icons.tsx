@@ -108,3 +108,44 @@ export function IconAppearanceLightMode(props: IconProps) {
     </svg>
   );
 }
+
+export function IconGrip(props: IconProps) {
+  return (
+    <svg viewBox='0 0 16 16' fill='currentColor' {...props}>
+      <circle cx='5' cy='4' r='1.25' />
+      <circle cx='5' cy='8' r='1.25' />
+      <circle cx='5' cy='12' r='1.25' />
+      <circle cx='11' cy='4' r='1.25' />
+      <circle cx='11' cy='8' r='1.25' />
+      <circle cx='11' cy='12' r='1.25' />
+    </svg>
+  );
+}
+
+export function IconUndo(props: IconProps) {
+  return (
+    <svg viewBox='0 0 24 24' fill='none' {...props}>
+      <path
+        d='M4 8h11a5 5 0 0 1 5 5 5 5 0 0 1-5 5H6M4 8l4-4M4 8l4 4'
+        stroke='currentColor'
+        strokeWidth={2}
+        strokeLinecap='round'
+        strokeLinejoin='round'
+      />
+    </svg>
+  );
+}
+
+export function IconDownload(props: IconProps) {
+  return (
+    <svg viewBox='0 0 24 24' fill='none' {...props}>
+      <path
+        d='M12 4v12m0 0l-4-4m4 4l4-4M4 18v2h16v-2'
+        stroke='currentColor'
+        strokeWidth={2}
+        strokeLinecap='round'
+        strokeLinejoin='round'
+      />
+    </svg>
+  );
+}

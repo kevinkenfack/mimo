@@ -52,7 +52,15 @@ function applyTheme(resolved: ResolvedTheme) {
   const root = document.documentElement;
   root.classList.toggle('dark', resolved === 'dark');
   root.style.colorScheme = resolved;
-  document.querySelector('meta[name="theme-color"]')?.setAttribute('content', META_THEME_COLORS[resolved]);
+  const meta = document.querySelector('meta[name="theme-color"]');
+  if (meta) {
+    meta.setAttribute('content', META_THEME_COLORS[resolved]);
+  } else {
+    const el = document.createElement('meta');
+    el.name = 'theme-color';
+    el.content = META_THEME_COLORS[resolved];
+    document.head.appendChild(el);
+  }
 }
 
 export interface ThemeProviderProps {

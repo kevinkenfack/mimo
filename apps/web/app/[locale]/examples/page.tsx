@@ -79,9 +79,6 @@ export default async function ExamplesPage() {
             <LocaleLink href='/playground' className={NAV_LINK_CLASS}>
               {common('playground')}
             </LocaleLink>
-            <LocaleLink href='/components' className={NAV_LINK_CLASS}>
-              {common('explore')}
-            </LocaleLink>
             <LocaleLink href='/examples' aria-current='page' className={NAV_LINK_CLASS}>
               {common('examples')}
             </LocaleLink>

@@ -51,11 +51,15 @@ function InstallBanner() {
             setPm(e.target.value as typeof pm);
           }}
           onClick={(e) => e.stopPropagation()}
-          className='cursor-pointer appearance-none border-none bg-transparent font-[inherit] text-[length:inherit] text-inherit underline decoration-dashed decoration-foreground-quaternary underline-offset-2 outline-none'
+          className='cursor-pointer appearance-none border-none bg-transparent font-[inherit] text-[length:inherit] text-inherit underline decoration-dashed decoration-foreground-quaternary underline-offset-2 outline-none scheme-light dark:scheme-dark'
           style={{ width: `${pm.length}ch` }}
         >
           {PACKAGE_MANAGERS.map((p) => (
-            <option key={p.value} value={p.value}>
+            <option
+              key={p.value}
+              value={p.value}
+              className='bg-white text-zinc-900 dark:bg-[#1d1d1c] dark:text-[#f2f1ed]'
+            >
               {p.value}
             </option>
           ))}
@@ -99,12 +103,6 @@ export function HeroSection() {
             className='rounded-md px-2 py-1 text-xs text-foreground-secondary transition-colors hover:text-heading focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-foreground-quaternary'
           >
             {common('examples')}
-          </LocaleLink>
-          <LocaleLink
-            href='/components'
-            className='rounded-md px-2 py-1 text-xs text-foreground-secondary transition-colors hover:text-heading focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-foreground-quaternary'
-          >
-            {common('explore')}
           </LocaleLink>
           <LanguageToggle />
           <ThemeToggle />
@@ -424,7 +422,7 @@ export function QuickStartSection() {
           code: (chunks) => <code>{chunks}</code>,
         })}
       </p>
-      <CodeBlock>{`<img src="https://api.mimo.sh/${displayName}${apiQuery}" />`}</CodeBlock>
+      <CodeBlock>{`<img src="https://api.mimoid.fun/${displayName}${apiQuery}" />`}</CodeBlock>
 
       <h4 className='mt-5 mb-1 text-[0.75rem] font-[560] text-heading-tertiary'>React</h4>
       <p>
@@ -937,5 +935,5 @@ export function ReferenceSection() {
 }
 
 export function PageFooter() {
-  return <SiteFooter narrow />;
+  return <SiteFooter />;
 }
