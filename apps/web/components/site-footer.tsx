@@ -30,7 +30,7 @@ export function SiteFooter({ narrow = false, fullWidth = false }: SiteFooterProp
         <div className='flex shrink-0 items-center justify-center gap-2 lg:justify-start'>
           <span className='whitespace-nowrap leading-none'>{t('craftedBy')}</span>
           <a
-            href='https://x.com/thekenfack'
+            href='https://kenfack.me'
             target='_blank'
             rel='noopener noreferrer'
             className='group inline-flex h-8 items-center gap-2 rounded-full bg-surface px-3 text-xs leading-none text-foreground/90 transition-colors hover:bg-surface-elevated hover:text-foreground'

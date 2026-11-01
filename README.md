@@ -1,10 +1,10 @@
 <div align="center">
   <br />
-  <a href="https://api.mimoid.fun/Sakura?size=80&detailLevel=full&animations=float"><img src="https://api.mimoid.fun/Sakura?size=80&detailLevel=full&animations=float" width="80" height="80" alt="Sakura" /></a>&nbsp;&nbsp;
-  <a href="https://api.mimoid.fun/Atlas?size=80&detailLevel=full&animations=eyebrowBounce"><img src="https://api.mimoid.fun/Atlas?size=80&detailLevel=full&animations=eyebrowBounce" width="80" height="80" alt="Atlas" /></a>&nbsp;&nbsp;
-  <a href="https://api.mimoid.fun/Luna?size=80&detailLevel=full&animations=glance"><img src="https://api.mimoid.fun/Luna?size=80&detailLevel=full&animations=glance" width="80" height="80" alt="Luna" /></a>&nbsp;&nbsp;
-  <a href="https://api.mimoid.fun/Phoenix?size=80&detailLevel=full&animations=eyeWander,sway"><img src="https://api.mimoid.fun/Phoenix?size=80&detailLevel=full&animations=eyeWander,sway" width="80" height="80" alt="Phoenix" /></a>&nbsp;&nbsp;
-  <a href="https://api.mimoid.fun/Steve?size=80&detailLevel=full&animations=blink,glance"><img src="https://api.mimoid.fun/Steve?size=80&detailLevel=full&animations=blink,glance" width="80" height="80" alt="Steve" /></a>
+  <a href="https://api.mimoid.fun/Nova?size=80&detailLevel=full&animations=float"><img src="https://api.mimoid.fun/Nova?size=80&detailLevel=full&animations=float" width="80" height="80" alt="Nova" /></a>&nbsp;&nbsp;
+  <a href="https://api.mimoid.fun/Zephyr?size=80&detailLevel=full&animations=eyebrowBounce"><img src="https://api.mimoid.fun/Zephyr?size=80&detailLevel=full&animations=eyebrowBounce" width="80" height="80" alt="Zephyr" /></a>&nbsp;&nbsp;
+  <a href="https://api.mimoid.fun/Kiko?size=80&detailLevel=full&animations=glance"><img src="https://api.mimoid.fun/Kiko?size=80&detailLevel=full&animations=glance" width="80" height="80" alt="Kiko" /></a>&nbsp;&nbsp;
+  <a href="https://api.mimoid.fun/Ember?size=80&detailLevel=full&animations=eyeWander,sway"><img src="https://api.mimoid.fun/Ember?size=80&detailLevel=full&animations=eyeWander,sway" width="80" height="80" alt="Ember" /></a>&nbsp;&nbsp;
+  <a href="https://api.mimoid.fun/Milo?size=80&detailLevel=full&animations=blink,glance"><img src="https://api.mimoid.fun/Milo?size=80&detailLevel=full&animations=blink,glance" width="80" height="80" alt="Milo" /></a>
   <br /><br />
 
   <h3>Mimo</h3>
