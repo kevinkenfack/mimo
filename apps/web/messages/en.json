@@ -89,6 +89,73 @@
       "cta": "Open the playground"
     }
   },
+  "examples": {
+    "metadata": {
+      "title": "Mimo examples — Avatars in real interfaces",
+      "description": "See Mimo avatars in live examples of conversations, profile cards, member lists, avatar groups, and account menus."
+    },
+    "navLabel": "Primary navigation",
+    "hero": {
+      "title": "Mimo, at home in your interface.",
+      "description": "From a conversation to an account menu, see how the same name keeps a familiar face across your product."
+    },
+    "chat": {
+      "title": "A conversation",
+      "description": "Give every message a familiar face, without interrupting the flow.",
+      "room": "#product-updates",
+      "messageCount": "3 recent messages",
+      "messageListLabel": "Recent messages",
+      "messages": {
+        "launch": "The new dashboard is live.",
+        "release": "A new release just landed. I’m checking it now.",
+        "sameFace": "Nova keeps the same face wherever we meet."
+      }
+    },
+    "stack": {
+      "title": "A team, at a glance",
+      "description": "Show who is working together with one compact, recognizable group.",
+      "groupLabel": "Seven project contributors",
+      "caption": "Seven people are collaborating on this project."
+    },
+    "profile": {
+      "title": "A profile with personality",
+      "description": "Give a profile a recognizable face, generated from a name alone.",
+      "availability": "Open to collaboration",
+      "bio": "Building small things with a big dose of curiosity.",
+      "follow": "Follow",
+      "message": "Message"
+    },
+    "members": {
+      "title": "Who’s around?",
+      "description": "Make a team roster easier to scan with clear identity and presence.",
+      "roles": {
+        "product": "Product",
+        "design": "Design",
+        "engineering": "Engineering",
+        "community": "Community"
+      },
+      "status": {
+        "online": "Online",
+        "offline": "Offline"
+      }
+    },
+    "menu": {
+      "title": "A small avatar, a full menu",
+      "description": "A familiar face still fits inside a compact account menu.",
+      "navigationLabel": "Example product navigation",
+      "workspace": "Workspace",
+      "openMenu": "Open Nova’s account menu",
+      "closeMenu": "Close Nova’s account menu",
+      "menuLabel": "Nova’s account options",
+      "email": "nova@mimoid.fun",
+      "items": {
+        "profile": "Your profile",
+        "settings": "Settings",
+        "help": "Help and support",
+        "signOut": "Sign out"
+      }
+    }
+  },
   "playground": {
     "metadata": {
       "title": "Mimo Playground — Create your avatar",
@@ -196,6 +263,7 @@
     "packageManager": "Package manager",
     "home": "Home",
     "explore": "Explore",
+    "examples": "Examples",
     "playground": "Playground"
   },
   "hero": {

@@ -95,6 +95,12 @@ export function HeroSection() {
         </span>
         <div className='flex items-center gap-1'>
           <LocaleLink
+            href='/examples'
+            className='rounded-md px-2 py-1 text-xs text-foreground-secondary transition-colors hover:text-heading focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-foreground-quaternary'
+          >
+            {common('examples')}
+          </LocaleLink>
+          <LocaleLink
             href='/components'
             className='rounded-md px-2 py-1 text-xs text-foreground-secondary transition-colors hover:text-heading focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-foreground-quaternary'
           >

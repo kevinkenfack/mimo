@@ -89,6 +89,73 @@
       "cta": "Ouvrir le Playground"
     }
   },
+  "examples": {
+    "metadata": {
+      "title": "Exemples Mimo — Des avatars dans vos interfaces",
+      "description": "Découvrez Mimo en direct dans des conversations, des profils, des listes de membres, des groupes d’avatars et des menus de compte."
+    },
+    "navLabel": "Navigation principale",
+    "hero": {
+      "title": "Mimo, à sa place dans vos interfaces.",
+      "description": "De la conversation au menu de compte, voyez comment un même nom garde son visage familier partout dans votre produit."
+    },
+    "chat": {
+      "title": "Une conversation",
+      "description": "Associez chaque message à un visage familier, sans interrompre le fil de la discussion.",
+      "room": "#annonces-produit",
+      "messageCount": "3 messages récents",
+      "messageListLabel": "Messages récents",
+      "messages": {
+        "launch": "Le nouveau tableau de bord est en ligne.",
+        "release": "Une nouvelle version vient de sortir. Je vérifie tout de suite.",
+        "sameFace": "Nova garde le même visage partout où l’on se retrouve."
+      }
+    },
+    "stack": {
+      "title": "Une équipe, en un regard",
+      "description": "Affichez les personnes qui travaillent ensemble dans un groupe compact et reconnaissable.",
+      "groupLabel": "Sept contributeurs au projet",
+      "caption": "Sept personnes collaborent sur ce projet."
+    },
+    "profile": {
+      "title": "Un profil avec du caractère",
+      "description": "Donnez à un profil un visage reconnaissable, généré à partir d’un simple nom.",
+      "availability": "Ouverte aux collaborations",
+      "bio": "Je construis de petites choses avec beaucoup de curiosité.",
+      "follow": "Suivre",
+      "message": "Message"
+    },
+    "members": {
+      "title": "Qui est là ?",
+      "description": "Parcourez les membres d’une équipe d’un coup d’œil, avec leur identité et leur présence.",
+      "roles": {
+        "product": "Produit",
+        "design": "Design",
+        "engineering": "Ingénierie",
+        "community": "Communauté"
+      },
+      "status": {
+        "online": "En ligne",
+        "offline": "Hors ligne"
+      }
+    },
+    "menu": {
+      "title": "Un petit avatar, un menu complet",
+      "description": "Même dans un menu de compte compact, Nova reste reconnaissable.",
+      "navigationLabel": "Navigation de démonstration",
+      "workspace": "Espace de travail",
+      "openMenu": "Ouvrir le menu du compte de Nova",
+      "closeMenu": "Fermer le menu du compte de Nova",
+      "menuLabel": "Options du compte de Nova",
+      "email": "nova@mimoid.fun",
+      "items": {
+        "profile": "Votre profil",
+        "settings": "Réglages",
+        "help": "Aide et support",
+        "signOut": "Se déconnecter"
+      }
+    }
+  },
   "playground": {
     "metadata": {
       "title": "Playground Mimo — Créez votre avatar",
@@ -196,6 +263,7 @@
     "packageManager": "Gestionnaire de paquets",
     "home": "Accueil",
     "explore": "Explorer",
+    "examples": "Exemples",
     "playground": "Playground"
   },
   "hero": {

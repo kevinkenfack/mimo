@@ -45,6 +45,9 @@ export function ComponentExplorer() {
             <LocaleLink href='/components' aria-current='page' className={NAV_LINK_CLASS}>
               {common('explore')}
             </LocaleLink>
+            <LocaleLink href='/examples' className={NAV_LINK_CLASS}>
+              {common('examples')}
+            </LocaleLink>
             <LanguageToggle />
             <ThemeToggle />
           </nav>
