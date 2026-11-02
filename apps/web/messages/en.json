@@ -4,6 +4,150 @@
     "description": "Generate unique, fully animated avatars from any string. 145,152 combinations with blinking, floating, and glancing animations — all deterministic and open-source.",
     "openGraphDescription": "Generate unique, fully animated avatars from any string. Deterministic, customizable, and open-source."
   },
+  "examples": {
+    "metadata": {
+      "title": "Mimo examples — Avatars in real interfaces",
+      "description": "Explore Mimo avatars across conversations, profiles, activity feeds, task boards, support inboxes, reviews, and multiplayer rooms."
+    },
+    "navLabel": "Primary navigation",
+    "hero": {
+      "title": "Mimo, at home in your interface.",
+      "description": "From a conversation to an account menu, see how the same name keeps a familiar face across your product."
+    },
+    "chat": {
+      "title": "A conversation",
+      "description": "Give every message a familiar face, without interrupting the flow.",
+      "room": "#product-updates",
+      "messageCount": "3 recent messages",
+      "messageListLabel": "Recent messages",
+      "messages": {
+        "launch": "The new dashboard is live.",
+        "release": "A new release just landed. I’m checking it now.",
+        "sameFace": "Nova keeps the same face wherever we meet."
+      }
+    },
+    "stack": {
+      "title": "A team, at a glance",
+      "description": "Show who is working together with one compact, recognizable group.",
+      "groupLabel": "Seven project contributors",
+      "caption": "Seven people are collaborating on this project."
+    },
+    "profile": {
+      "title": "A profile with personality",
+      "description": "Give a profile a recognizable face, generated from a name alone.",
+      "availability": "Open to collaboration",
+      "bio": "Building small things with a big dose of curiosity.",
+      "follow": "Follow",
+      "message": "Message"
+    },
+    "members": {
+      "title": "Who’s around?",
+      "description": "Make a team roster easier to scan with clear identity and presence.",
+      "roles": {
+        "product": "Product",
+        "design": "Design",
+        "engineering": "Engineering",
+        "community": "Community"
+      },
+      "status": {
+        "online": "Online",
+        "offline": "Offline"
+      }
+    },
+    "menu": {
+      "title": "A small avatar, a full menu",
+      "description": "A familiar face still fits inside a compact account menu.",
+      "navigationLabel": "Example product navigation",
+      "workspace": "Workspace",
+      "openMenu": "Open Nova’s account menu",
+      "closeMenu": "Close Nova’s account menu",
+      "menuLabel": "Nova’s account options",
+      "email": "nova@mimoid.fun",
+      "items": {
+        "profile": "Your profile",
+        "settings": "Settings",
+        "help": "Help and support",
+        "signOut": "Sign out"
+      }
+    },
+    "activity": {
+      "title": "An activity feed",
+      "description": "Give launches, invitations, and feedback a familiar face across your workspace.",
+      "listLabel": "Recent workspace activity",
+      "events": {
+        "release": "shared the latest product update",
+        "joined": "joined the design workspace",
+        "feedback": "left feedback on your profile card"
+      },
+      "times": {
+        "justNow": "Just now",
+        "twelveMinutesAgo": "12 min ago",
+        "oneHourAgo": "1 hour ago"
+      }
+    },
+    "kanban": {
+      "title": "Tasks with their people",
+      "description": "Make ownership easy to scan by pairing every task with its assignee.",
+      "board": "Product board",
+      "project": "Mimo website refresh",
+      "taskCount": "{count} tasks",
+      "columns": {
+        "todo": "Up next",
+        "inProgress": "In progress"
+      },
+      "tasks": {
+        "avatarMenu": "Refine the avatar menu",
+        "apiDocs": "Review the API docs",
+        "preview": "Build a new preview",
+        "profileLayout": "Polish profile layouts"
+      }
+    },
+    "support": {
+      "title": "A more personal support inbox",
+      "description": "Keep each request recognizable with customer and teammate avatars.",
+      "queue": "Customer support",
+      "ticketCount": "{count} open requests",
+      "assignedTo": "Owner",
+      "statuses": {
+        "waiting": "Needs a reply",
+        "assigned": "In progress"
+      },
+      "tickets": {
+        "exportSubject": "Avatar export looks blurry",
+        "exportPreview": "Could you help me get a sharper download?",
+        "paletteSubject": "Can I use my own colors?",
+        "palettePreview": "I’d like to match our product palette."
+      },
+      "times": {
+        "twoMinutesAgo": "2 min ago",
+        "eighteenMinutesAgo": "18 min ago"
+      }
+    },
+    "reviews": {
+      "title": "Kind words, familiar faces",
+      "description": "Pair feedback with a consistent reviewer identity, without collecting profile photos.",
+      "ratingLabel": "{rating} out of 5 stars",
+      "roles": {
+        "designer": "Product designer",
+        "maintainer": "Open-source maintainer"
+      },
+      "quotes": {
+        "community": "Our community feels more welcoming when every comment has a face.",
+        "product": "The same avatar across our docs and app makes everything feel connected."
+      }
+    },
+    "multiplayer": {
+      "title": "A room full of familiar faces",
+      "description": "Recognize every participant at a glance and highlight whoever is speaking.",
+      "roomName": "Design sync",
+      "participantCount": "{count} participants",
+      "participantList": "Room participants: {count}",
+      "live": "Live",
+      "speaking": "Speaking",
+      "listening": "In the room",
+      "speakerAnnouncement": "{name} is speaking now."
+    }
+  },
   "playground": {
     "metadata": {
       "title": "Mimo Playground — Create your avatar",
@@ -113,6 +257,7 @@
     "copyToClipboard": "Copy to clipboard",
     "packageManager": "Package manager",
     "home": "Home",
+    "examples": "Examples",
     "playground": "Playground"
   },
   "hero": {
