@@ -1,10 +1,15 @@
 import type { Metadata } from 'next';
 import { hasLocale } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
+import { ActivityFeedExample } from '@/components/examples/activity-feed-example';
 import { AvatarStackExample } from '@/components/examples/avatar-stack-example';
 import { ChatExample } from '@/components/examples/chat-example';
+import { KanbanExample } from '@/components/examples/kanban-example';
 import { MemberListExample } from '@/components/examples/member-list-example';
+import { MultiplayerRoomExample } from '@/components/examples/multiplayer-room-example';
 import { ProfileCardExample } from '@/components/examples/profile-card-example';
+import { ReviewsExample } from '@/components/examples/reviews-example';
+import { SupportInboxExample } from '@/components/examples/support-inbox-example';
 import { UserMenuExample } from '@/components/examples/user-menu-example';
 import { LanguageToggle } from '@/components/language-toggle';
 import { SiteFooter } from '@/components/site-footer';
@@ -98,10 +103,15 @@ export default async function ExamplesPage() {
 
         <div className='grid min-w-0 gap-x-8 gap-y-9 py-8 sm:gap-y-12 md:grid-cols-2'>
           <ChatExample />
+          <ActivityFeedExample />
           <AvatarStackExample />
+          <KanbanExample />
           <ProfileCardExample />
+          <ReviewsExample />
           <MemberListExample />
           <UserMenuExample />
+          <SupportInboxExample />
+          <MultiplayerRoomExample />
         </div>
       </div>
       <SiteFooter />

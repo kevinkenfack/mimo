@@ -7,7 +7,7 @@
   "examples": {
     "metadata": {
       "title": "Mimo examples — Avatars in real interfaces",
-      "description": "See Mimo avatars in live examples of conversations, profile cards, member lists, avatar groups, and account menus."
+      "description": "Explore Mimo avatars across conversations, profiles, activity feeds, task boards, support inboxes, reviews, and multiplayer rooms."
     },
     "navLabel": "Primary navigation",
     "hero": {
@@ -69,6 +69,83 @@
         "help": "Help and support",
         "signOut": "Sign out"
       }
+    },
+    "activity": {
+      "title": "An activity feed",
+      "description": "Give launches, invitations, and feedback a familiar face across your workspace.",
+      "listLabel": "Recent workspace activity",
+      "events": {
+        "release": "shared the latest product update",
+        "joined": "joined the design workspace",
+        "feedback": "left feedback on your profile card"
+      },
+      "times": {
+        "justNow": "Just now",
+        "twelveMinutesAgo": "12 min ago",
+        "oneHourAgo": "1 hour ago"
+      }
+    },
+    "kanban": {
+      "title": "Tasks with their people",
+      "description": "Make ownership easy to scan by pairing every task with its assignee.",
+      "board": "Product board",
+      "project": "Mimo website refresh",
+      "taskCount": "{count} tasks",
+      "columns": {
+        "todo": "Up next",
+        "inProgress": "In progress"
+      },
+      "tasks": {
+        "avatarMenu": "Refine the avatar menu",
+        "apiDocs": "Review the API docs",
+        "preview": "Build a new preview",
+        "profileLayout": "Polish profile layouts"
+      }
+    },
+    "support": {
+      "title": "A more personal support inbox",
+      "description": "Keep each request recognizable with customer and teammate avatars.",
+      "queue": "Customer support",
+      "ticketCount": "{count} open requests",
+      "assignedTo": "Owner",
+      "statuses": {
+        "waiting": "Needs a reply",
+        "assigned": "In progress"
+      },
+      "tickets": {
+        "exportSubject": "Avatar export looks blurry",
+        "exportPreview": "Could you help me get a sharper download?",
+        "paletteSubject": "Can I use my own colors?",
+        "palettePreview": "I’d like to match our product palette."
+      },
+      "times": {
+        "twoMinutesAgo": "2 min ago",
+        "eighteenMinutesAgo": "18 min ago"
+      }
+    },
+    "reviews": {
+      "title": "Kind words, familiar faces",
+      "description": "Pair feedback with a consistent reviewer identity, without collecting profile photos.",
+      "ratingLabel": "{rating} out of 5 stars",
+      "roles": {
+        "designer": "Product designer",
+        "maintainer": "Open-source maintainer"
+      },
+      "quotes": {
+        "community": "Our community feels more welcoming when every comment has a face.",
+        "product": "The same avatar across our docs and app makes everything feel connected."
+      }
+    },
+    "multiplayer": {
+      "title": "A room full of familiar faces",
+      "description": "Recognize every participant at a glance and highlight whoever is speaking.",
+      "roomName": "Design sync",
+      "participantCount": "{count} participants",
+      "participantList": "Room participants: {count}",
+      "live": "Live",
+      "speaking": "Speaking",
+      "listening": "In the room",
+      "speakerAnnouncement": "{name} is speaking now."
     }
   },
   "playground": {

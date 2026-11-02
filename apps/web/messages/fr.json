@@ -7,7 +7,7 @@
   "examples": {
     "metadata": {
       "title": "Exemples Mimo — Des avatars dans vos interfaces",
-      "description": "Découvrez Mimo en direct dans des conversations, des profils, des listes de membres, des groupes d’avatars et des menus de compte."
+      "description": "Découvrez Mimo dans des conversations, profils, fils d’activité, tableaux de tâches, boîtes de support, avis et salons multijoueurs."
     },
     "navLabel": "Navigation principale",
     "hero": {
@@ -69,6 +69,83 @@
         "help": "Aide et support",
         "signOut": "Se déconnecter"
       }
+    },
+    "activity": {
+      "title": "Un fil d’activité",
+      "description": "Ajoutez des visages familiers aux lancements, invitations et retours dans votre espace de travail.",
+      "listLabel": "Activité récente de l’espace de travail",
+      "events": {
+        "release": "a partagé la dernière actualité produit",
+        "joined": "a rejoint l’espace design",
+        "feedback": "a commenté votre carte de profil"
+      },
+      "times": {
+        "justNow": "À l’instant",
+        "twelveMinutesAgo": "Il y a 12 min",
+        "oneHourAgo": "Il y a 1 h"
+      }
+    },
+    "kanban": {
+      "title": "Des tâches avec leurs responsables",
+      "description": "Repérez facilement qui fait quoi grâce à un avatar près de chaque tâche.",
+      "board": "Tableau produit",
+      "project": "Refonte du site Mimo",
+      "taskCount": "{count} tâches",
+      "columns": {
+        "todo": "À faire",
+        "inProgress": "En cours"
+      },
+      "tasks": {
+        "avatarMenu": "Améliorer le menu d’avatar",
+        "apiDocs": "Relire la documentation API",
+        "preview": "Créer un nouvel aperçu",
+        "profileLayout": "Peaufiner les profils"
+      }
+    },
+    "support": {
+      "title": "Une boîte de support plus humaine",
+      "description": "Identifiez chaque demande avec l’avatar du client et celui de la personne qui lui répond.",
+      "queue": "Support client",
+      "ticketCount": "{count} demandes ouvertes",
+      "assignedTo": "Pris en charge par",
+      "statuses": {
+        "waiting": "Réponse attendue",
+        "assigned": "En cours"
+      },
+      "tickets": {
+        "exportSubject": "Mon avatar téléchargé est flou",
+        "exportPreview": "Comment obtenir une image plus nette ?",
+        "paletteSubject": "Puis-je utiliser mes propres couleurs ?",
+        "palettePreview": "J’aimerais reprendre la palette de notre produit."
+      },
+      "times": {
+        "twoMinutesAgo": "Il y a 2 min",
+        "eighteenMinutesAgo": "Il y a 18 min"
+      }
+    },
+    "reviews": {
+      "title": "Des avis à visage découvert",
+      "description": "Associez chaque témoignage à une identité reconnaissable, sans demander de photo de profil.",
+      "ratingLabel": "Note : {rating} sur 5",
+      "roles": {
+        "designer": "Designer produit",
+        "maintainer": "Mainteneur open source"
+      },
+      "quotes": {
+        "community": "Notre communauté paraît plus accueillante quand chaque commentaire a un visage.",
+        "product": "Le même avatar dans la documentation et l’application rend le produit plus cohérent."
+      }
+    },
+    "multiplayer": {
+      "title": "Un salon plein de visages familiers",
+      "description": "Reconnaissez les participants d’un coup d’œil et mettez en évidence la personne qui parle.",
+      "roomName": "Réunion design",
+      "participantCount": "{count} participants",
+      "participantList": "Participants du salon : {count}",
+      "live": "En direct",
+      "speaking": "Parle",
+      "listening": "Dans le salon",
+      "speakerAnnouncement": "{name} est en train de parler."
     }
   },
   "playground": {
